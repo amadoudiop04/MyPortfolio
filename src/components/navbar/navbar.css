@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.header-container{
+margin: 3%;
+}
+
+.title-top{
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+
+.my-nav{
+display: flex;
+justify-content: space-around;
+}
+
+.nav-links{
+    display: flex;
+}
+
+.nav-links{
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.5em;
+}
+
+.links-header{
+    color: black;
+    text-decoration: none;
+}
+
+.links-header:hover{
+    text-decoration: underline;
+}

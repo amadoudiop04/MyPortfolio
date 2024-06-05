@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.myself{
+display: flex;
+justify-content: center;
+}
+
+.myself-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.card-profile-img{
+    margin: 3vh;
+    border: solid 1px ;
+    background: center / cover no-repeat url("./amadou.png");
+    border-radius: 50%;
+    background-color: aqua;
+    height: 25vh;
+    width: 25vh;
+}
+
+.presentation{
+ transform: translateY(13%);
+}
+
+.text-1{
+    font-size: 1.5em;
+}
+
+.text-2{
+font-size: 2em;
+}
+
+.text-3{
+font-size: 3em;
+}
+
+.btn-1,.btn-2{
+    font-family: "Lobster Two", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 3px 3px;
+    border-radius: 20px;
+    font-size: 2em;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.btn-2:hover{
+    background-color: black;
+    color: white;
+}
+.btn-1:hover{
+    background-color: black;
+    color: white;
+}
