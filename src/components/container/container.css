@@ -16,7 +16,7 @@ justify-content: center;
     max-width: 100%;
     margin: 3vh;
     border: solid 1px ;
-    /* background: center / cover no-repeat url("../amadou.png"); */
+    background: center / cover no-repeat url("../amadou.png");
     border-radius: 50%;
     background-color: aqua;
     height: 25vh;
