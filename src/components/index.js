@@ -1,3 +1,5 @@
 export { default as Footer} from './footer/footer'
 export { default as Navbar} from './navbar/navbar'
 export { default as Container} from './container/container'
+export { default as Containercard} from './containercard/containercard'
+export { default as Experience} from './experience/experience'

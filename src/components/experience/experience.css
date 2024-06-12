@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.card-container,.notion{
+display: flex;
+justify-content: space-around;
+}
+
+.card-container{
+    margin: 5vh;
+}
+
+.card{
+    height: 50vh;
+    width: 70vh;
+    border: solid 0.5px;
+    border-radius: 20px;
+}
+
+
+.card-animated,.card-animated-1,.card-animated-2{
+    height: 60vh;
+    width: 35vh;
+    border: solid 0.5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20%;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 5px 5px  rgb(204, 203, 203);
+    background: center / cover no-repeat url("https://4kwallpapers.com/images/wallpapers/anonymous-3840x2160-13656.jpg");
+}
+
+.element{
+    margin: 4vh ;
+}
+
+.title-card{
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+    font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.animated-cardcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+    margin: 5%;
+}
+
+.cardEmail{
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 15vh;
+    width: 50vh;
+    border: solid 0.5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.infoContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini_card_animated,.mini_card_animated-1,.mini_card_animated-2{
+height: 30vh;
+width: 30vh;
+border: solid 1px;
+border-radius: 20px;
+}
+
+.mini_card_animated{
+    background: center / cover no-repeat url("https://t3.ftcdn.net/jpg/02/45/56/24/360_F_245562410_PmIEyr1I3WkcwMVC6vBwrXctULQ4sA28.jpg");
+}
+
+.mini_card_animated-1{
+    background: center / cover no-repeat url("https://cdn.supersoluce.com/file/docs/docid_516552f28f152f8d5a000079/elemid_4ee9d6ec0a2fe93f0e00000c/boxxle-gb.jpg");
+}
+
+.mini_card_animated-2{
+    background: center / cover no-repeat url("https://thumbs.dreamstime.com/b/le-stylo-et-textotent-mon-histoire-121700479.jpg");
+}
+
+.my-btn{
+    height: auto;
+    width: auto;
+    padding: 3px 3px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    margin: 2px;
+}
+
+.my-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+
+@media (max-width:768px) {
+    .element{
+        margin: none;
+    }
+
+    .card{
+        height: auto;
+        width: 70vh;
+        margin: 1%;
+    }
+
+    .card-container{
+       transform: translateX(-9%);
+    }
+
+    .card-animated,.card-animated-1,.card-animated-2{
+        margin: 2%;
+        transform: translateX(15%);
+    }
+
+    .infoContainer{
+        transform: translateX(15%);
+    }
+
+}
+
+
+
+
+@media (max-width:500px) {
+    .element{
+        margin: none;
+    }
+
+    .card{
+        height: auto;
+        width: 70vh;
+        margin: 1%;
+    }
+
+    .card-container{
+       transform: translateX(-9%);
+    }
+
+    .card-animated,.card-animated-1,.card-animated-2{
+        margin: 2%;
+        transform: translateX(15%);
+    }
+
+    .infoContainer{
+        transform: translateX(15%);
+    }
+
+}
+
+
+
+
+@media (max-width:468px) {
+    .element{
+        margin: none;
+    }
+
+    .card{
+        height: auto;
+        width: 70vh;
+        margin: 1%;
+    }
+
+    .card-container{
+       transform: translateX(10%);
+    }
+
+    .card-animated,.card-animated-1,.card-animated-2{
+        margin: 2%;
+        transform: translateX(15%);
+    }
+
+    .infoContainer{
+        transform: translateX(15%);
+    }
+
+}

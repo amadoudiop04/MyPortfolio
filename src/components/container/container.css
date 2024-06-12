@@ -12,9 +12,11 @@ justify-content: center;
 
 
 .card-profile-img{
+    display: block;
+    max-width: 100%;
     margin: 3vh;
     border: solid 1px ;
-    background: center / cover no-repeat url("./amadou.png");
+    /* background: center / cover no-repeat url("../amadou.png"); */
     border-radius: 50%;
     background-color: aqua;
     height: 25vh;
@@ -55,7 +57,70 @@ font-size: 3em;
     background-color: black;
     color: white;
 }
+
 .btn-1:hover{
     background-color: black;
     color: white;
 }
+
+.logoSn{
+    height: 10vh;
+}
+
+.logo{
+    margin-left: 17vh;
+    cursor: pointer;
+    height: 5vh;
+}
+
+
+@media (max-width: 768px) {
+    .myself-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card-profile-img {
+      margin-bottom: 2rem;
+      width: 20vh;
+      height: 20vh;
+    }
+  
+    .presentation {
+      transform: translateY(0);
+    }
+  
+    .text-1 {
+      font-size: 1.2em;
+    }
+  
+    .text-2 {
+      font-size: 1.5em;
+    }
+  
+    .text-3 {
+      font-size: 2em;
+    }
+  
+    .btn-1, .btn-2 {
+      font-size: 1.5em;
+    }
+  
+    .logo {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-1, .text-2, .text-3 {
+      font-size: 1em;
+    }
+  
+    .btn-1, .btn-2 {
+      font-size: 1em;
+    }
+  
+    .logo,.logoSn {
+      height: 4vh;
+    }
+  }
