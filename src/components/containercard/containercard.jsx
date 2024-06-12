@@ -43,7 +43,7 @@ const containercard = () => {
               </Box>
               <br />
               <p className="biography">
-                  Amadou Diop est un jeune apprenti en informatique originaire du Sénégal, passionné par ce métier depuis son enfance. Il s'est lancé dans la quête de savoir avec pour objectif d'exceller dans le domaine professionnel.
+              Amadou Diop is a young computer apprentice from Senegal, who has been passionate about the profession since childhood. He embarked on his quest for knowledge with the aim of excelling in the professional field.
               </p>
             </div>
           </div>
