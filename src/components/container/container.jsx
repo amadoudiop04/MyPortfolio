@@ -1,6 +1,6 @@
 import React from 'react'
 import './container.css'
-import image from '../github.png'
+import image from '../Ressources/github.png'
 
 const container = () => {
   return (

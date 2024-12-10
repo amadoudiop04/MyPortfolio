@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import DrapeauSN from  "../senegal.png"
+import DrapeauSN from  "../Ressources/senegal.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
