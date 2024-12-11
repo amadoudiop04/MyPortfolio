@@ -19,7 +19,7 @@ justify-content: space-around;
 
 .card-animated,.card-animated-1,.card-animated-2{
     height: 60vh;
-    width: 35vh;
+    width: 60vh;
     border: solid 0.5px;
     border-radius: 20px;
     display: flex;
@@ -30,7 +30,7 @@ justify-content: space-around;
     gap:20%;
     background-color: whitesmoke;
     box-shadow: 5px 5px 5px 5px  rgb(204, 203, 203);
-    background: center / cover no-repeat url("https://4kwallpapers.com/images/wallpapers/anonymous-3840x2160-13656.jpg");
+    background: center / cover no-repeat url("https://media.istockphoto.com/id/1169276040/fr/vectoriel/illustration-bleue-de-fond-de-demi-ton-de-couleur-de-n%C3%A9on.jpg?s=612x612&w=0&k=20&c=PdZ5yxPx1_7b1Nrl1sP8Ib43nLRMiZ6HavxkVT-MVSI=");
 }
 
 .element{
@@ -75,14 +75,15 @@ justify-content: space-around;
 }
 
 .mini_card_animated,.mini_card_animated-1,.mini_card_animated-2{
-height: 30vh;
-width: 30vh;
+height: 250px;
+width: 430px;
 border: solid 1px;
 border-radius: 20px;
 }
 
+
 .mini_card_animated{
-    background: center / cover no-repeat url("https://t3.ftcdn.net/jpg/02/45/56/24/360_F_245562410_PmIEyr1I3WkcwMVC6vBwrXctULQ4sA28.jpg");
+    background: center / cover no-repeat url("../Ressources/gameTalk.png");
 }
 
 .mini_card_animated-1{
@@ -90,7 +91,7 @@ border-radius: 20px;
 }
 
 .mini_card_animated-2{
-    background: center / cover no-repeat url("https://thumbs.dreamstime.com/b/le-stylo-et-textotent-mon-histoire-121700479.jpg");
+    background: center / cover no-repeat url("../Ressources/PokemonLikeProject1.png");
 }
 
 .my-btn{
@@ -190,4 +191,19 @@ border-radius: 20px;
         transform: translateX(15%);
     }
 
+}
+
+
+.Contacts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+    margin: 5%;
+}
+
+.LinkedIn{
+    margin: 10px;
+    color: black;
 }
