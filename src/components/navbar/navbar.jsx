@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import DrapeauSN from  "../Ressources/senegal.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="header-container">
       <nav className="my-nav">
-        <h1 className="title-top">Amadou Diop <img className="logoSn" src={DrapeauSN} alt='logoSn'/></h1>
+        <h1 className="title-top">Amadou Diop<img className="logoSn" src={DrapeauSN} alt='logoSn'/></h1>
         <div className={`nav-links-container ${isOpen ? "open" : ""}`}>
           <ul className="nav-links">
             <li><a className="links-header" href="#about">About</a></li>

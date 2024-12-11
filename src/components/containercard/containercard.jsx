@@ -5,7 +5,7 @@ import { Box, Card, Text} from "@radix-ui/themes";
 
 const containercard = () => {
   return (
-    <div className="myself">
+    <div id="about" className="myself">
       <section className="more-info">
         <div className="block">
           <p className="title">Get to Know More</p>
@@ -21,7 +21,7 @@ const containercard = () => {
                               Experience
                     </Text>
                     <Text as="div" color="gray" size="2">
-                    1+ years
+                    2+ years
                     learning full stack Development
                     </Text>
                   </a>
