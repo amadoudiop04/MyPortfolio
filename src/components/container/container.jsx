@@ -12,7 +12,7 @@ const container = () => {
     <p className='text-1'> hello, I'm </p>
     <p className='text-2'> Amadou Diop </p>
     <p className='text-3'> Junior Developer </p>
-    <a href="https://drive.google.com/file/d/1s6W3Ve2FZGSJIcAgoQN1ldQMWO4K4owl/view?usp=drive_link"> <button className='btn-1'>Download CV</button></a>
+    <a href="https://drive.google.com/file/d/1gT_vnRpR35G9AjLm86QNNSraGsOc9R99/view?usp=drive_link"> <button className='btn-1'>Download CV</button></a>
     <div>
       <a href="https://github.com/amadoudiop04"><img className='logo' src={image} alt="logo" /></a>
     </div>
