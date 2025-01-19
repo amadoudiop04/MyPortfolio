@@ -112,7 +112,7 @@ const experience = () => {
   </div>
   <div>
   <a href='https://github.com/B1-Info-23-24/projet-forum-gametalk'><button className='my-btn'>Github</button></a>
-   <a href="https://github.com/dashboard"><button className='my-btn'>live Demo</button></a>
+   <a href="https://drive.google.com/file/d/1XGejp93b8dftmdbapPYz30h7SUMEyek3/view?usp=drive_link"><button className='my-btn'>live Demo</button></a>
    </div>
 </div>
 <div className='card-animated-1'>
@@ -120,7 +120,7 @@ const experience = () => {
   </div>
   <div>
   <a href='https://ytrack.learn.ynov.com/git/damadou/Boxxle'><button className='my-btn'>Github</button></a>
-   <a href="https://github.com/dashboard"><button className='my-btn'>live Demo</button></a>
+   <a href="https://drive.google.com/file/d/1ZCSgfiJKvdrcILDy3_tvjq6vUwX4zevo/view?usp=drive_link"><button className='my-btn'>live Demo</button></a>
    </div>
 </div>
 <div className='card-animated-2'>
@@ -128,7 +128,7 @@ const experience = () => {
   </div>
   <div>
   <a href='https://github.com/amadoudiop04/PokemonLikeCsharp'><button className='my-btn'>Github</button></a>
-   <a href="https://github.com/dashboard"><button className='my-btn'>live Demo</button></a>
+   <a href="https://drive.google.com/file/d/1y6u-q3-0pe6XMo1KW_RzMEeoG-1Ac10i/view?usp=sharing"><button className='my-btn'>live Demo</button></a>
    </div>
 </div>
 
