@@ -6,9 +6,5 @@ module.exports = {
         'custom-properties': false, 
       },
     },
-    'postcss-calc': {
-      precision: 10, 
-      preserve: false, 
-    },
   },
 };
