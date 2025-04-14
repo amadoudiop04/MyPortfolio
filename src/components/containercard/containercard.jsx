@@ -36,7 +36,7 @@ const containercard = () => {
                                Education
                     </Text>
                     <Text as="div" color="gray" size="2">
-                    bachalor informatique Ynov lyon 
+                    bachelor informatique Ynov lyon 
                     </Text>
                   </a>
                 </Card>
@@ -44,6 +44,7 @@ const containercard = () => {
               <br />
               <p className="biography">
               Amadou Diop is a young computer apprentice from Senegal, who has been passionate about the profession since childhood. He embarked on his quest for knowledge with the aim of excelling in the professional field.
+              I'm looking for a two-and-a-half-month internship starting in June 2025, as well as a work-study program for my third year starting in October (2 weeks at the company, 1 week at school).
               </p>
             </div>
           </div>
