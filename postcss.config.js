@@ -8,7 +8,7 @@ module.exports = {
     },
     'postcss-calc': {
       precision: 10, 
-      preserve: true, 
+      preserve: false, 
     },
   },
 };
