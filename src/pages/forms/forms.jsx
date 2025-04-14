@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import './forms.css';
+import React, { useState } from "react";
+import "./forms.css";
 
 const Forms = () => {
   const [formData, setFormData] = useState({
-    civility: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    postalCode: '',
-    city: '',
-    age: '',
-    birthDate: '',
-    profession: '',
-    country: '',
+    civility: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    postalCode: "",
+    city: "",
+    age: "",
+    birthDate: "",
+    profession: "",
+    country: "",
     interests: {
       art: false,
       music: false,
@@ -22,7 +22,7 @@ const Forms = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (type === 'checkbox') {
+    if (type === "checkbox") {
       setFormData((prev) => ({
         ...prev,
         interests: {
@@ -40,17 +40,28 @@ const Forms = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    alert('Formulaire soumis avec succès !');
+    console.log("Form Data:", formData);
+    alert("Formulaire soumis avec succès !");
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit} aria-labelledby="formTitle">
-      <h2 id="formTitle" className="form-title">Formulaire d'inscription</h2>
+    <form
+      className="form-container"
+      onSubmit={handleSubmit}
+      aria-labelledby="formTitle"
+    >
+      <h2 id="formTitle" className="form-title">
+        Formulaire d'inscription
+      </h2>
 
       <div className="form-group">
         <label htmlFor="civility">Civilité</label>
-        <select id="civility" name="civility" value={formData.civility} onChange={handleChange}>
+        <select
+          id="civility"
+          name="civility"
+          value={formData.civility}
+          onChange={handleChange}
+        >
           <option value="">--Choisir--</option>
           <option value="madame">Madame</option>
           <option value="monsieur">Monsieur</option>
@@ -60,11 +71,23 @@ const Forms = () => {
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="firstName">Prénom</label>
-          <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} />
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="lastName">Nom</label>
-          <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} />
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
         </div>
       </div>
 
@@ -84,28 +107,57 @@ const Forms = () => {
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="postalCode">Code postal</label>
-          <input type="text" id="postalCode" name="postalCode" value={formData.postalCode} onChange={handleChange} />
+          <input
+            type="text"
+            id="postalCode"
+            name="postalCode"
+            value={formData.postalCode}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="city">Ville</label>
-          <input type="text" id="city" name="city" value={formData.city} onChange={handleChange} />
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+          />
         </div>
       </div>
 
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="age">Âge</label>
-          <input type="number" id="age" name="age" value={formData.age} onChange={handleChange} />
+          <input
+            type="number"
+            id="age"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="birthDate">Date de naissance</label>
-          <input type="date" id="birthDate" name="birthDate" value={formData.birthDate} onChange={handleChange} />
+          <input
+            type="date"
+            id="birthDate"
+            name="birthDate"
+            value={formData.birthDate}
+            onChange={handleChange}
+          />
         </div>
       </div>
 
       <div className="form-group">
         <label htmlFor="profession">Profession</label>
-        <select id="profession" name="profession" value={formData.profession} onChange={handleChange}>
+        <select
+          id="profession"
+          name="profession"
+          value={formData.profession}
+          onChange={handleChange}
+        >
           <option value="">--Choisir--</option>
           <option value="etudiant">Étudiant</option>
           <option value="ingenieur">Ingénieur</option>
@@ -116,7 +168,12 @@ const Forms = () => {
 
       <div className="form-group">
         <label htmlFor="country">Pays</label>
-        <select id="country" name="country" value={formData.country} onChange={handleChange}>
+        <select
+          id="country"
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
+        >
           <option value="">--Choisir--</option>
           <option value="france">France</option>
           <option value="belgique">Belgique</option>
@@ -161,7 +218,9 @@ const Forms = () => {
         </div>
       </fieldset>
 
-      <button type="submit" className="submit-button">S'inscrire</button>
+      <button type="submit" className="submit-button">
+        S'inscrire
+      </button>
     </form>
   );
 };
