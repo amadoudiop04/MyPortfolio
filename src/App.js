@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Footer, Navbar, Container, Containercard, Experience } from "./components";
+import { Footer, Navbar, Container, Containercard, Experience, AnimatedProjectCards } from "./components";
 import Forms from "./pages/forms/forms";
 
 import './App.css';
+import Infos from "./components/infos/infos";
 
 const App = () => {
   return (
@@ -16,6 +17,9 @@ const App = () => {
               <Container />
               <Containercard />
               <Experience />
+              <AnimatedProjectCards />
+              <Infos />
+
             </>
           } />
           <Route path="/forms" element={<Forms />} />

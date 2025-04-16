@@ -1,126 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-.myself{
-display: flex;
-justify-content: center;
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.myself-container{
-    display: flex;
-    justify-content: space-between;
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  width: 100%;
+  background-image: url('https://wallpapers.com/images/high/digital-anonymous-mask-artwork-b6snt31h7nau9vv2.webp');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
-
-.card-profile-img{
-    display: block;
-    max-width: 100%;
-    margin: 3vh;
-    border: solid 1px ;
-    background: center / cover no-repeat url("../Ressources/AMADOU.jpg");
-    border-radius: 50%;
-    background-color: aqua;
-    height: 25vh;
-    width: 25vh;
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  z-index: 0;
 }
 
-.presentation{
- transform: translateY(13%);
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-.text-1{
-    font-size: 1.5em;
+.card-profile-img {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: center / cover no-repeat url("../../Ressources/AMADOU.jpg");
+  border: 4px solid #777;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.text-2{
-font-size: 2em;
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.text-3{
-font-size: 2.5em;
+.text-greeting {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
 }
 
-.btn-1,.btn-2{
-    font-family: "Lobster Two", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  padding: 3px 3px;
-    border-radius: 20px;
-    font-size: 2em;
-    margin: 1%;
-    cursor: pointer;
+.text-name {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
 }
 
-.btn-2:hover{
-    background-color: black;
-    color: white;
+.text-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
 }
 
-.btn-1:hover{
-    background-color: black;
-    color: white;
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-.logoSn{
-    height: 10vh;
+.cv-button-wrapper {
+  text-decoration: none;
 }
 
-.logo{
-    margin-left: 17vh;
-    cursor: pointer;
-    height: 5vh;
+.btn-primary {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.btn-primary:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #eee;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Conteneur pour le maillot 3D */
+.jersey-container {
+  width: 350px;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1100px) {
+  .main-container {
+    flex-direction: column;
+  }
+  
+  .jersey-container {
+    width: 100%;
+    max-width: 550px;
+  }
+}
 
 @media (max-width: 768px) {
-    .myself-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .card-profile-img {
-      margin-bottom: 2rem;
-      width: 20vh;
-      height: 20vh;
-    }
-  
-    .presentation {
-      transform: translateY(0);
-    }
-  
-    .text-1 {
-      font-size: 1.2em;
-    }
-  
-    .text-2 {
-      font-size: 1.5em;
-    }
-  
-    .text-3 {
-      font-size: 2em;
-    }
-  
-    .btn-1, .btn-2 {
-      font-size: 1.5em;
-    }
-  
-    .logo {
-      margin-left: 0;
-    }
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .card-profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-links {
+    margin-top: 1rem;
   }
   
-  @media (max-width: 480px) {
-    .text-1, .text-2, .text-3 {
-      font-size: 1em;
-    }
-  
-    .btn-1, .btn-2 {
-      font-size: 1em;
-    }
-  
-    .logo,.logoSn {
-      height: 4vh;
-    }
+  .jersey-container {
+    height: 350px;
   }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .card-profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .text-greeting {
+    font-size: 1.2rem;
+  }
+
+  .text-name {
+    font-size: 2rem;
+  }
+
+  .text-title {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+  
+  .jersey-container {
+    height: 300px;
+  }
+}
