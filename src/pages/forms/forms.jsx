@@ -51,7 +51,7 @@ const Forms = () => {
       aria-labelledby="formTitle"
     >
       <h2 id="formTitle" className="form-title">
-        Formulaire d'inscription
+        Formulaire d'inscription Test version
       </h2>
 
       <div className="form-group">
