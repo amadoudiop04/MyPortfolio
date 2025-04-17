@@ -264,7 +264,7 @@ const Forms = () => {
             rows="5"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Écris ton message ici..."
+            placeholder="Write your message here..."
           ></textarea>
         </div>
 
