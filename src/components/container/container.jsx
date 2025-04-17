@@ -89,9 +89,9 @@ const Container = () => {
           <div className="card-profile-img" aria-label="profile"></div>
 
           <div className="profile-info">
-            <p className="text-greeting">Hello, I'm</p>
+            <h1 className="text-greeting">Hello, I'm</h1>
             <h2 className="text-name">Amadou Diop</h2>
-            <h1 id="profile-heading" className="text-title">Junior Developer</h1>
+            <h3 id="profile-heading" className="text-title">Junior Developer</h3>
           </div>
         </div>
 

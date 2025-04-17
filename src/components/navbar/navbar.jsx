@@ -20,7 +20,7 @@ const Navbar = () => {
           <ul className="nav-links">
             <li>
               <a className="links-header" href="/">
-                Accueil
+              Home
               </a>
             </li>
 

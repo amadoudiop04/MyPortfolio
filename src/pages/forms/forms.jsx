@@ -90,8 +90,8 @@ const Forms = () => {
         });
       })
       .catch((error) => {
-        console.error("Erreur lors de l'envoi :", error);
-        alert("Une erreur est survenue lors de l'envoi.");
+        console.error("Sending error :", error);
+        alert("An error occurred during transmission.");
       });
   };
 
@@ -99,29 +99,29 @@ const Forms = () => {
     <>
       {isSubmitted && (
         <div className="success-message">
-          🎉 Message envoyé avec succès !
+          🎉 Message sent successfully!
         </div>
       )}
       <form className="form-container" onSubmit={handleSubmit}>
-        <h2 className="form-title">Laissez moi un message ✉️</h2>
+        <h2 className="form-title">Leave me a message ✉️</h2>
 
         <div className="form-group">
-          <label htmlFor="civility">Civilité</label>
+          <label htmlFor="civility">Civility</label>
           <select
             id="civility"
             name="civility"
             value={formData.civility}
             onChange={handleChange}
           >
-            <option value="">--Choisir--</option>
-            <option value="madame">Madame</option>
-            <option value="monsieur">Monsieur</option>
+            <option value="">--Choose--</option>
+            <option value="madame">Ms.</option>
+            <option value="monsieur">Mr.</option>
           </select>
         </div>
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="firstName">Prénom</label>
+            <label htmlFor="firstName">First name</label>
             <input
               type="text"
               id="firstName"
@@ -131,7 +131,7 @@ const Forms = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">Nom</label>
+            <label htmlFor="lastName">Name</label>
             <input
               type="text"
               id="lastName"
@@ -143,7 +143,7 @@ const Forms = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Adresse e-mail</label>
+          <label htmlFor="email">E-mail address</label>
           <input
             type="email"
             id="email"
@@ -155,7 +155,7 @@ const Forms = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="postalCode">Code postal</label>
+            <label htmlFor="postalCode">Postal code</label>
             <input
               type="text"
               id="postalCode"
@@ -165,7 +165,7 @@ const Forms = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="city">Ville</label>
+            <label htmlFor="city">City</label>
             <input
               type="text"
               id="city"
@@ -178,7 +178,7 @@ const Forms = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="age">Âge</label>
+            <label htmlFor="age">Age</label>
             <input
               type="number"
               id="age"
@@ -195,33 +195,33 @@ const Forms = () => {
               value={formData.profession}
               onChange={handleChange}
             >
-              <option value="">--Choisir--</option>
-              <option value="etudiant">Étudiant</option>
-              <option value="ingenieur">Ingénieur</option>
-              <option value="medecin">Médecin</option>
-              <option value="autre">Autre</option>
+              <option value="">--Choose--</option>
+              <option value="etudiant">Student</option>
+              <option value="ingenieur">Engineer</option>
+              <option value="medecin">Doctor</option>
+              <option value="autre">Other</option>
             </select>
           </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="lieu">Lieu d’envoi</label>
+          <label htmlFor="lieu">Place of dispatch</label>
           <select
             id="lieu"
             name="lieu"
             value={formData.lieu}
             onChange={handleChange}
           >
-            <option value="">--Choisir--</option>
+            <option value="">--Choose--</option>
             <option value="france">France</option>
-            <option value="belgique">Belgique</option>
-            <option value="suisse">Suisse</option>
-            <option value="autre">Autre</option>
+            <option value="belgique">Belgium</option>
+            <option value="suisse">Switzerland</option>
+            <option value="autre">Other</option>
           </select>
         </div>
 
         <fieldset className="form-group">
-          <legend>Centres d’intérêt</legend>
+          <legend>Interests</legend>
           <div className="checkbox-group">
             <label htmlFor="art">
               <input
@@ -241,7 +241,7 @@ const Forms = () => {
                 checked={formData.interests.music}
                 onChange={handleChange}
               />
-              Musique
+              Music
             </label>
             <label htmlFor="sport">
               <input

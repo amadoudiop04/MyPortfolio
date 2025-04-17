@@ -46,7 +46,7 @@ const AnimatedProjectCards = () => {
   return (
     <>
       <div id="projects" className="title-2">
-        Projects
+        Projects 
       </div>
 
       <div className="animated-cardcontainer">
@@ -65,10 +65,10 @@ const AnimatedProjectCards = () => {
           >
             <div className="project-image-container">
               <img
-                aria-label="project"
-                src={project.image}
-                alt={project.name}
-                className="project-image"
+                 aria-label="project-portfolio"
+                 src={project.image}
+                 alt={`Illustration du projet ${project.name}`}
+                 className="project-image"
               />
             </div>
 

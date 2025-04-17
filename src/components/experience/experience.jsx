@@ -3,7 +3,7 @@ import "./experience.css";
 
 const skills = [
   {
-    title: "Développement Web",
+    title: "Web development",
     items: [
       { name: "Golang", icon: "go/go-original.svg" },
       { name: "JavaScript", icon: "javascript/javascript-original.svg" },
@@ -17,7 +17,7 @@ const skills = [
     ],
   },
   {
-    title: "Outils & Bases de données",
+    title: "Tools & Databases",
     items: [
       { name: "Jira", icon: "jira/jira-original.svg" },
       { name: "Docker", icon: "docker/docker-original.svg" },

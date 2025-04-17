@@ -50,7 +50,7 @@ select {
 .submit-button {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #4caf50;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 10px;
