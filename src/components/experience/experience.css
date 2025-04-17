@@ -1,31 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-
-.card-container,
-.notion {
-  display: flex;
-  justify-content: space-around;
-}
-
 .card-container {
-  margin: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .card {
-  height: 50vh;
-  width: 70vh;
-  border: solid 0.5px;
-  border-radius: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.element {
-  margin: 4vh;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.title-card {
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skill-item {
   display: flex;
-  justify-content: center;
-  margin: 4%;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 300;
-  font-style: normal;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.skill-icon {
+  width: 24px;
+  height: 24px;
 }
