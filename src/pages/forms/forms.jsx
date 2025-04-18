@@ -269,7 +269,7 @@ const Forms = () => {
         </div>
 
         <button type="submit" className="submit-button">
-          Contacter
+          Contact
         </button>
       </form>
     </>
