@@ -19,7 +19,7 @@ const techLogos = {
   express:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   TailwindCSS:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    "https://cdn.worldvectorlogo.com/logos/tailwind-css-1.svg",
   MYSQL:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 };
