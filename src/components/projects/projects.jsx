@@ -106,7 +106,7 @@ const AnimatedProjectCards = () => {
 
                 <div className="text-center mt-2">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm ${
+                    className={`px-3 py-1 rounded-full text-sm cursor-pointer ${
                       project.status === "Disponible"
                         ? "bg-green-900/40 text-green-800 border border-green-500/30"
                         : "bg-yellow-900/40 text-orange-900 border border-yellow-500/30"
