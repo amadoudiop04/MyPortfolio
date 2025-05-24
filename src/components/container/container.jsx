@@ -97,7 +97,7 @@ const Container = () => {
 
         <div className="profile-actions">
           <a
-            href="https://drive.google.com/file/d/1wzh9tnRmX_aKTkQ0YbLX-LnbbOzewPlD/view?usp=sharing"
+            href="https://drive.google.com/file/d/1GMGd2hOdXQrYDK6Kr7hA7KnQL6PO3Rze/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="cv-button-wrapper"
