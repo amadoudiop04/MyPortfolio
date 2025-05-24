@@ -2,6 +2,8 @@ import { useState } from "react";
 import image1 from "../../Ressources/gameTalk.png";
 import image2 from "../../Ressources/PokemonLike.png";
 import image3 from "../../Ressources/Hackaton48H.png";
+import image4 from "../../Ressources/Raoding.png"
+// import image5 from "../../Ressources"
 
 const techLogos = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -22,6 +24,11 @@ const techLogos = {
     "https://cdn.worldvectorlogo.com/logos/tailwind-css-1.svg",
   MYSQL:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  MongoDB:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    PHP:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+    
 };
 
 const AnimatedProjectCards = () => {
@@ -66,6 +73,26 @@ const AnimatedProjectCards = () => {
       description: "Project developed during a 48-hour hackathon event",
       status: "Coming Soon",
     },
+     {
+      id: 5,
+      name: "Raodjing",
+      image: image4,
+      github: "",
+      demo: "",
+      technologies: ["React", "Node", "express", "TailwindCSS", "MongoDB"],
+      description: "Développement d'une plateforme pour une equipe e-sport de ligues of legends",
+      status: "Coming Soon",
+    },
+    {
+      id: 6,
+      name: "ecommerce",
+      // image: image5,
+      github: "",
+      demo: "",
+      technologies: ["PHP", "HTML", "CSS", "MYSQL"],
+      description: "Développement d'une plateforme de mise en vente de livre",
+      status: "Coming Soon",
+    },
   ];
 
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -89,7 +116,7 @@ const AnimatedProjectCards = () => {
             >
               {/* Left Side - Image and Status */}
               <div className="w-full md:w-80 flex flex-col">
-                <div className="relative overflow-hidden rounded-xl shadow-lg h-48 md:h-64 w-full">
+                <div className="relative overflow-hidden rounded-xl shadow-lg h-48 md:h-65 w-full">
                   <img
                     loading="lazy"
                     src={project.image}
