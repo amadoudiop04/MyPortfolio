@@ -4,6 +4,8 @@ import image2 from "../../Ressources/PokemonLike.png";
 import image3 from "../../Ressources/Hackaton48H.png";
 import image4 from "../../Ressources/Raoding.png"
 // import image5 from "../../Ressources"
+import image6 from "../../Ressources/blog.png"
+
 
 const techLogos = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -73,7 +75,7 @@ const AnimatedProjectCards = () => {
       description: "Project developed during a 48-hour hackathon event",
       status: "Coming Soon",
     },
-     {
+    {
       id: 5,
       name: "Raodjing",
       image: image4,
@@ -93,6 +95,16 @@ const AnimatedProjectCards = () => {
       description: "Développement d'une plateforme de mise en vente de livre",
       status: "Coming Soon",
     },
+    {
+      id: 7,
+      name: "Blog de stage 25-26",
+      image: image6,
+      github: "",
+      demo: "https://blogamadoudiop25-26.netlify.app",
+      technologies: ["React", "TailwindCSS"],
+      description: "Blog personnel pour partager mes expériences de stage",
+      status: "Disponible",
+    }
   ];
 
   const [hoveredProject, setHoveredProject] = useState(null);
