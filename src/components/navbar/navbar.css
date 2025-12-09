@@ -26,12 +26,14 @@
 }
 
 .links-header {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .links-header:hover {
   text-decoration: underline;
+  color: var(--primary-color);
 }
 
 .burger {
@@ -44,7 +46,8 @@
 .burger div {
   width: 25px;
   height: 3px;
-  background-color: black;
+  background-color: var(--text-color);
+  transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -52,13 +55,15 @@
     display: none;
     flex-direction: column;
     gap: 1rem;
-    background-color: white;
+    background-color: var(--bg-color);
     position: absolute;
     top: 60px;
     right: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px var(--shadow);
     z-index: 1000;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
   }
 
   .nav-links-container.open .nav-links {

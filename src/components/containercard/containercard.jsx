@@ -1,14 +1,17 @@
 import React from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./containercard.css";
 import "@radix-ui/themes/styles.css";
 import { Box, Card, Text } from "@radix-ui/themes";
 
 const ContainerCard = () => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <main id="about" className="myself" role="main">
       <section className="more-info" aria-labelledby="about-heading">
         <div className="block">
-          <header>
+          <header className={`scroll-animate ${isVisible ? 'visible' : ''}`} ref={ref}>
             <h1 className="title" aria-label="get to know more">
               {" "}
               Get to Know More{" "}
@@ -18,8 +21,8 @@ const ContainerCard = () => {
             </h2>
           </header>
 
-          <div className="info-container">
-            <div className="card-img" aria-label="me"></div>
+          <div className={`info-container scroll-animate ${isVisible ? 'visible' : ''}`}>
+            <div className="card-img" aria-label="Photo d'Amadou Diop"></div>
 
             <div className="mini-card">
               <Box maxWidth="350px">
@@ -29,7 +32,7 @@ const ContainerCard = () => {
                       <div aria-label="my-experience"></div>
                       Experience
                     </Text>
-                    <Text as="p" color="gray" size="2">
+                    <Text as="p" color="white" size="2">
                       2+ years learning full stack development
                     </Text>
                   </article>
@@ -43,7 +46,7 @@ const ContainerCard = () => {
                       <div aria-label="School"></div>
                       Education
                     </Text>
-                    <Text as="p" color="gray" size="2">
+                    <Text as="p" color="white" size="2">
                       Bachelor's in Computer Science – Ynov Lyon
                     </Text>
                   </article>

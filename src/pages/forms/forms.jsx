@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import emailjs from "emailjs-com";
 import "./forms.css";
 
 const Forms = () => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const [formData, setFormData] = useState({
     civility: "",
     firstName: "",
@@ -96,13 +98,17 @@ const Forms = () => {
   };
 
   return (
-    <>
+    <div className="forms-page">
       {isSubmitted && (
         <div className="success-message">
           🎉 Message sent successfully!
         </div>
       )}
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form 
+        className={`form-container scroll-animate ${isVisible ? 'visible' : ''}`} 
+        onSubmit={handleSubmit}
+        ref={ref}
+      >
         <h2 className="form-title">Leave me a message ✉️</h2>
 
         <div className="form-group">
@@ -268,11 +274,11 @@ const Forms = () => {
           ></textarea>
         </div>
 
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button" aria-label="Envoyer le message">
           Contact
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

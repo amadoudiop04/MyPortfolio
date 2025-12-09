@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import image1 from "../../Ressources/gameTalk.png";
 import image2 from "../../Ressources/PokemonLike.png";
 import image3 from "../../Ressources/Hackaton48H.png";
 import image4 from "../../Ressources/Raoding.png"
-// import image5 from "../../Ressources"
+import image5 from "../../Ressources/ecommerce.png";
 import image6 from "../../Ressources/blog.png"
 
 
@@ -34,6 +35,9 @@ const techLogos = {
 };
 
 const AnimatedProjectCards = () => {
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   const projects = [
     {
       id: 1,
@@ -88,7 +92,7 @@ const AnimatedProjectCards = () => {
     {
       id: 6,
       name: "ecommerce",
-      // image: image5,
+      image: image5,
       github: "",
       demo: "",
       technologies: ["PHP", "HTML", "CSS", "MYSQL"],
@@ -109,14 +113,57 @@ const AnimatedProjectCards = () => {
 
   const [hoveredProject, setHoveredProject] = useState(null);
 
+  // Get all unique technologies for filter
+  const allTechnologies = useMemo(() => {
+    const techs = new Set();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techs.add(tech));
+    });
+    return ["All", ...Array.from(techs).sort()];
+  }, []);
+
+  // Filter projects
+  const filteredProjects = useMemo(() => {
+    if (selectedFilter === "All") return projects;
+    return projects.filter(project => 
+      project.technologies.includes(selectedFilter)
+    );
+  }, [selectedFilter]);
+
   return (
     <div className="w-full max-w-6xl mx-auto">
-      <div id="projects" className="text-center text-3xl font-bold my-8">
+      <div 
+        id="projects" 
+        className={`text-center text-3xl font-bold my-8 scroll-animate ${isVisible ? 'visible' : ''}`}
+        ref={ref}
+      >
         Projects
       </div>
 
+      {/* Filter buttons */}
+      <div className="flex flex-wrap justify-center gap-2 mb-8 px-4">
+        {allTechnologies.map((tech) => (
+          <button
+            key={tech}
+            onClick={() => setSelectedFilter(tech)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              selectedFilter === tech
+                ? "bg-blue-600 text-white shadow-lg scale-105"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+            }`}
+          >
+            {tech}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-col space-y-12 mx-4 md:mx-8">
-        {projects.map((project) => {
+        {filteredProjects.length === 0 ? (
+          <div className="text-center py-12 text-gray-500">
+            <p>Aucun projet trouvé pour cette technologie.</p>
+          </div>
+        ) : (
+          filteredProjects.map((project) => {
           const isHovered = hoveredProject === project.id;
 
           return (
@@ -223,7 +270,7 @@ const AnimatedProjectCards = () => {
               </div>
             </div>
           );
-        })}
+        }))}
       </div>
 
       <style jsx>{`

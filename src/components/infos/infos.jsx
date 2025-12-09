@@ -1,11 +1,14 @@
 import React from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import "./infos.css";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa"; 
 
 const Infos = () => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <div id="contact" className="infoContainer">
-      <div className="infoText">
+      <div className={`infoText scroll-animate ${isVisible ? 'visible' : ''}`} ref={ref}>
         <h2 className="title">Get in Touch</h2>
         <h1 className="title-2">Contact Me</h1>
       </div>

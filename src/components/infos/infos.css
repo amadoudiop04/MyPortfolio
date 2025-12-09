@@ -2,32 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
   text-align: center;
+  background-color: var(--card-bg);
+  transition: background-color 0.3s ease;
 }
 
 .title {
   font-size: 1.5rem;
-  color: #555;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .title-2 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #222;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .cardEmail {
-  background-color: #f8f8f8;
+  background-color: var(--bg-color);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px var(--shadow);
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .contactItem {
@@ -35,21 +41,24 @@
   align-items: center;
   gap: 1rem;
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .contactLink {
   text-decoration: none;
-  color: #0072b1;
+  color: var(--primary-color);
   font-weight: 500;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contactLink:hover {
   text-decoration: underline;
+  color: var(--secondary-color);
 }
 
 .icon {
   font-size: 1.5rem;
-  color: black;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
 }

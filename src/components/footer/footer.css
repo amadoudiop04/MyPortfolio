@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .footer {
-  background-color: #f8f8f8;
+  background-color: var(--card-bg);
   padding: 2rem 1rem;
   font-family: 'Lobster Two', sans-serif;
   font-weight: 400;
   font-style: normal;
   text-align: center;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-color);
   margin-top: 3rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content {
@@ -27,19 +28,21 @@
 
 .footer-links a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #007acc;
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
 .footer-text {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
