@@ -8,14 +8,15 @@
 }
 
 .form-container {
-  max-width: 600px;
-  margin: auto;
-  background-color: var(--card-bg);
+  background: var(--bg);
+  color: var(--text);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(14px);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .form-title {
@@ -26,21 +27,15 @@
 }
 
 .form-group {
-  margin-bottom: 1rem;
-}
-
-.form-row {
+  margin-bottom: 1.5rem;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: bold;
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
 }
 
 input[type="text"],
@@ -49,20 +44,26 @@ input[type="number"],
 input[type="date"],
 select {
   width: 100%;
-  padding: 0.6rem;
-  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+  border-color: var(--accent);
+  background: var(--panel-light);
 }
 
 .checkbox-group {
@@ -98,13 +99,13 @@ textarea:focus {
 
 textarea {
   width: 100%;
-  padding: 0.6rem;
-  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  border: 1px solid var(--border);
   border-radius: 8px;
   resize: vertical;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
+  background: var(--panel);
+  color: var(--text);
+  transition: border-color 0.3s ease, background 0.3s ease;
   font-family: inherit;
 }
 
@@ -143,5 +144,85 @@ textarea {
   100% {
     opacity: 0;
     transform: translateY(-10px);
+  }
+}
+
+/* Mode responsive */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+}
+
+.contact-button {
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  color: #ffffff;
+  border: 2px solid #7c3aed;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.contact-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
+  background: linear-gradient(135deg, #6d28d9, #06b6d4);
+}
+
+.contact-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.contact-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mode clair - Button plus visible */
+@media (prefers-color-scheme: light) {
+  .contact-button {
+    background: linear-gradient(135deg, #7c3aed, #0891b2);
+    border-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  }
+
+  .contact-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #6d28d9, #0e7490);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
+  }
+}
+
+.button-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .contact-button {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
   }
 }

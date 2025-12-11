@@ -24,6 +24,7 @@ const Forms = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -45,6 +46,7 @@ const Forms = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const templateParams = {
       civility: formData.civility,
@@ -94,6 +96,9 @@ const Forms = () => {
       .catch((error) => {
         console.error("Sending error :", error);
         alert("An error occurred during transmission.");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -274,8 +279,21 @@ const Forms = () => {
           ></textarea>
         </div>
 
-        <button type="submit" className="submit-button" aria-label="Envoyer le message">
-          Contact
+        {/* Optimisation du bouton Contact */}
+        <button 
+          type="submit" 
+          className="contact-button"
+          disabled={isLoading}
+          aria-label="Envoyer le formulaire de contact"
+        >
+          {isLoading ? (
+            <>
+              <span className="button-spinner" />
+              Envoi en cours...
+            </>
+          ) : (
+            "Envoyer un message"
+          )}
         </button>
       </form>
     </div>
