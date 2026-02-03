@@ -17,7 +17,7 @@ const techLogos = {
   SQLite:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
   "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-  EntityFramework: "", // Pas de logo, on affiche juste le texte
+  EntityFramework: "",
   React:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   Node: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
@@ -38,7 +38,7 @@ const AnimatedProjectCards = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       name: "GameTalk Forum",
@@ -109,7 +109,7 @@ const AnimatedProjectCards = () => {
       description: "Blog personnel pour partager mes expériences de stage",
       status: "Disponible",
     }
-  ];
+  ], []);
 
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -120,7 +120,7 @@ const AnimatedProjectCards = () => {
       project.technologies.forEach(tech => techs.add(tech));
     });
     return ["All", ...Array.from(techs).sort()];
-  }, []);
+  }, [projects]);
 
   // Filter projects
   const filteredProjects = useMemo(() => {
@@ -128,163 +128,157 @@ const AnimatedProjectCards = () => {
     return projects.filter(project => 
       project.technologies.includes(selectedFilter)
     );
-  }, [selectedFilter]);
+  }, [selectedFilter, projects]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
-      <div 
-        id="projects" 
-        className={`text-center text-3xl font-bold my-8 scroll-animate ${isVisible ? 'visible' : ''}`}
-        ref={ref}
-      >
-        Projects
-      </div>
+    <section className="w-full py-20 px-4 sm:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Title */}
+        <div 
+          id="projects" 
+          className={`text-center mb-12 transform transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          ref={ref}
+        >
+          <h2 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
+            Mes Projets
+          </h2>
+        </div>
 
-      {/* Filter buttons */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8 px-4">
-        {allTechnologies.map((tech) => (
-          <button
-            key={tech}
-            onClick={() => setSelectedFilter(tech)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              selectedFilter === tech
-                ? "bg-blue-600 text-white shadow-lg scale-105"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-          >
-            {tech}
-          </button>
-        ))}
-      </div>
-
-      <div className="flex flex-col space-y-12 mx-4 md:mx-8">
-        {filteredProjects.length === 0 ? (
-          <div className="text-center py-12 text-gray-500">
-            <p>Aucun projet trouvé pour cette technologie.</p>
-          </div>
-        ) : (
-          filteredProjects.map((project) => {
-          const isHovered = hoveredProject === project.id;
-
-          return (
-            <div
-              key={project.id}
-              className="flex flex-col md:flex-row items-center gap-8"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+        {/* Filter buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 pb-8">
+          {allTechnologies.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => setSelectedFilter(tech)}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                selectedFilter === tech
+                  ? "bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg scale-105"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+              }`}
             >
-              {/* Left Side - Image and Status */}
-              <div className="w-full md:w-80 flex flex-col">
-                <div className="relative overflow-hidden rounded-xl shadow-lg h-48 md:h-65 w-full">
-                  <img
-                    loading="lazy"
-                    src={project.image}
-                    alt={`Projet ${project.name}`}
-                    className="w-full h-full object-cover transition-transform duration-500"
-                    style={{
-                      transform: isHovered ? "scale(1.05)" : "scale(1)",
-                      filter: isHovered
-                        ? "brightness(1.1)"
-                        : "brightness(0.95)",
-                    }}
-                  />
-                </div>
+              {tech}
+            </button>
+          ))}
+        </div>
 
-                <div className="text-center mt-2">
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm cursor-pointer ${
-                      project.status === "Disponible"
-                        ? "bg-green-900/40 text-green-800 border border-green-500/30"
-                        : "bg-yellow-900/40 text-orange-900 border border-yellow-500/30"
-                    }`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-              </div>
-
-              {/* Right Side - Project Info */}
-              <div className="flex-1">
-                <h3
-                  className="text-2xl font-bold tracking-wide mb-3 transition-all duration-300 text-red-900"
-                >
-                  {project.name}
-                </h3>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-white/10 border border-white/15 rounded-full px-3 py-1 text-xs text-black flex items-center gap-2 transition-all duration-300 hover:bg-white/20 hover:-translate-y-1"
-                    >
-                      {techLogos[tech] && (
-                        <img
-                          aria-label={`Logo ${tech}`}
-                          src={techLogos[tech]}
-                          alt={tech}
-                          className="w-10 h-10"
-                          style={{ animation: "float 4s ease-in-out infinite" }}
-                        />
-                      )}
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Description */}
-                {project.description && (
-                  <p className="text-sm text-gray-500 mb-6">
-                    {project.description}
-                  </p>
-                )}
-
-                {/* Action Buttons */}
-                <div className="flex gap-4">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className="px-5 py-2 rounded-lg text-sm font-semibold bg-gray-800 text-white border border-gray-600 hover:bg-cyan-700 hover:border-cyan-600 transition-all">
-                        GitHub
-                      </button>
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button
-                        className="flex items-center justify-center gap-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white/10 backdrop-blur text-black border border-white/20 shadow-md transition-all duration-300 hover:bg-blue-200 hover:-translate-y-1 hover:shadow-lg"
-                        aria-label={`Voir la démonstration de ${project.name}`}
-                      >
-                        Live Demo
-                      </button>
-                    </a>
-                  )}
-                </div>
-              </div>
+        {/* Projects Grid */}
+        <div className="space-y-12">
+          {filteredProjects.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-slate-400 text-lg">Aucun projet trouvé pour cette technologie.</p>
             </div>
-          );
-        }))}
-      </div>
+          ) : (
+            filteredProjects.map((project) => {
+              const isHovered = hoveredProject === project.id;
 
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-2px);
-          }
-        }
-      `}</style>
-    </div>
+              return (
+                <div
+                  key={project.id}
+                  className="flex flex-col lg:flex-row gap-8 items-center lg:items-start"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                >
+                  {/* Project Image Section */}
+                  <div className="w-full lg:w-80 flex-shrink-0">
+                    <div className="relative overflow-hidden rounded-2xl shadow-xl h-64 w-full group">
+                      <img
+                        loading="lazy"
+                        src={project.image}
+                        alt={`Projet ${project.name}`}
+                        className="w-full h-full object-cover transition-all duration-500"
+                        style={{
+                          transform: isHovered ? "scale(1.1)" : "scale(1)",
+                          filter: isHovered ? "brightness(1.15)" : "brightness(0.9)",
+                        }}
+                      />
+                      {/* Status Badge Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                            project.status === "Disponible"
+                              ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                              : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                          }`}
+                        >
+                          {project.status}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Info Section */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                      {project.name}
+                    </h3>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="bg-slate-800/50 border border-slate-700 rounded-full px-3 py-1 text-xs text-slate-300 flex items-center gap-2 transition-all duration-300 hover:bg-slate-700/50 hover:border-indigo-500/30"
+                        >
+                          {techLogos[tech] && (
+                            <img
+                              aria-label={`Logo ${tech}`}
+                              src={techLogos[tech]}
+                              alt={tech}
+                              className="w-4 h-4 object-contain"
+                            />
+                          )}
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    {project.description && (
+                      <p className="text-slate-300 mb-6 leading-relaxed">
+                        {project.description}
+                      </p>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap gap-3">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block"
+                        >
+                          <button className="px-6 py-2 rounded-lg text-sm font-semibold bg-slate-800 text-white border border-slate-600 hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+                            GitHub
+                          </button>
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block"
+                        >
+                          <button
+                            className="px-6 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                            aria-label={`Voir la démonstration de ${project.name}`}
+                          >
+                            Live Demo
+                          </button>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 

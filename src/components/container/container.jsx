@@ -1,235 +1,104 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import "./container.css";
+import React from "react";
 import image from "../../Ressources/github.png";
+import profileImage from "../../Ressources/AMADOU.jpg";
 
 const Container = () => {
-  const mountRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-  const sceneRef = useRef(null);
-  const rendererRef = useRef(null);
-
-  useEffect(() => {
-    const currentMount = mountRef.current;
-    if (!currentMount) return;
-
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf0f0f0);
-    sceneRef.current = scene;
-
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      currentMount.clientWidth / currentMount.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.set(0, 0, 8);
-
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
-      alpha: true,
-      powerPreference: "high-performance"
-    });
-    renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    currentMount.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0x6366f1, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 3;
-    controls.enableZoom = false;
-    controls.dampingFactor = 0.05;
-
-    // Création d'un objet 3D informatique (Circuit Board)
-    const createComputerArt = () => {
-      const group = new THREE.Group();
-
-      // Base de la circuit board
-      const baseGeometry = new THREE.BoxGeometry(4, 4, 0.2);
-      const baseMaterial = new THREE.MeshStandardMaterial({
-        color: 0x0f172a,
-        metalness: 0.8,
-        roughness: 0.2,
-      });
-      const base = new THREE.Mesh(baseGeometry, baseMaterial);
-      group.add(base);
-
-      // Créer des points de connexion (circuits)
-      const pointGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-      const pointMaterial = new THREE.MeshStandardMaterial({
-        color: 0x6366f1,
-        emissive: 0x4f46e5,
-        metalness: 0.9,
-        roughness: 0.1,
-      });
-
-      const positions = [
-        [-1.5, 1.5, 0.15], [-1.5, -1.5, 0.15], [1.5, 1.5, 0.15], [1.5, -1.5, 0.15],
-        [0, 1.5, 0.15], [0, -1.5, 0.15], [-1.5, 0, 0.15], [1.5, 0, 0.15],
-        [0, 0, 0.15]
-      ];
-
-      positions.forEach((pos) => {
-        const point = new THREE.Mesh(pointGeometry, pointMaterial);
-        point.position.set(pos[0], pos[1], pos[2]);
-        group.add(point);
-      });
-
-      // Lignes de connexion
-      const lineMaterial = new THREE.LineBasicMaterial({
-        color: 0x6366f1,
-        linewidth: 2,
-      });
-
-      const lineGeometry = new THREE.BufferGeometry();
-      const linePositions = [];
-
-      // Créer des connexions entre les points
-      const connections = [
-        [0, 1], [0, 2], [1, 3], [2, 3], [4, 0], [5, 1], [6, 0], [7, 2],
-        [0, 8], [1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [6, 8], [7, 8]
-      ];
-
-      connections.forEach(([start, end]) => {
-        linePositions.push(
-          positions[start][0], positions[start][1], positions[start][2],
-          positions[end][0], positions[end][1], positions[end][2]
-        );
-      });
-
-      lineGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
-      const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
-      group.add(lines);
-
-      // Ajouter des petits cubes pour l'effet technologique
-      const cubeGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-      const cubeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xec4899,
-        emissive: 0xec4899,
-      });
-
-      const randomPoints = [
-        [-0.8, 0.8], [0.8, -0.8], [-0.3, 1.2], [0.3, -1.2], [1.2, 0.3]
-      ];
-
-      randomPoints.forEach((pos) => {
-        const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-        cube.position.set(pos[0], pos[1], 0.2);
-        group.add(cube);
-      });
-
-      return group;
-    };
-
-    const computerArt = createComputerArt();
-    scene.add(computerArt);
-    setIsLoading(false);
-
-    let animationId;
-    const animate = () => {
-      animationId = requestAnimationFrame(animate);
-      controls.update();
-      
-      // Animation supplémentaire pour les points
-      computerArt.children.forEach((child) => {
-        if (child.isMesh && child.geometry.type === 'SphereGeometry') {
-          child.rotation.y += 0.005;
-        }
-      });
-
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    const handleResize = () => {
-      if (!currentMount) return;
-      camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationId);
-      
-      if (currentMount && renderer.domElement.parentNode === currentMount) {
-        currentMount.removeChild(renderer.domElement);
-      }
-      
-      scene.traverse((object) => {
-        if (object.geometry) object.geometry.dispose();
-        if (object.material) {
-          if (Array.isArray(object.material)) {
-            object.material.forEach(mat => mat.dispose());
-          } else {
-            object.material.dispose();
-          }
-        }
-      });
-      renderer.dispose();
-    };
-  }, []);
 
   return (
-    <main className="main-container" role="main">
-      <section className="profile-card" aria-labelledby="profile-heading">
-        <div className="profile-header">
-          <div className="card-profile-img" aria-label="profile"></div>
-
-          <div className="profile-info">
-            <h1 className="text-greeting">Hello, I'm</h1>
-            <h2 className="text-name">Amadou Diop</h2>
-            <h3 id="profile-heading" className="text-title">Junior Developer</h3>
+    <main className="min-h-screen px-4 sm:px-8 py-16">
+      <div className="max-w-6xl mx-auto">
+        {/* Hero Section */}
+        <section className="grid md:grid-cols-2 gap-12 items-center mb-20 bg-transparent">
+          {/* Profile Image */}
+          <div className="flex justify-center md:justify-start order-2 md:order-1">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-pink-400 rounded-3xl blur-2xl opacity-30" />
+              <img 
+                src={profileImage}
+                alt="Amadou Diop Profile"
+                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl object-cover shadow-2xl border-4 border-slate-700 hover:border-indigo-500/50 transition-all duration-300"
+                loading="lazy"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="profile-actions">
-          <a
-            href="https://docs.google.com/document/d/1qcx6xXyEw_13vPfCigk4zCv9yZUDvGemxZqbR5gUnU8/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cv-button-wrapper"
-          >
-            <button className="btn-primary" aria-label="Download my CV">
-              📄 Download CV
-            </button>
-          </a>
+          {/* Profile Info */}
+          <div className="flex flex-col gap-6 order-1 md:order-2">
+            <div className="space-y-2">
+              <p className="text-lg text-slate-400 font-medium">Bienvenue 👋</p>
+              <h1 className="text-5xl sm:text-6xl font-bold text-white leading-tight">
+                Amadou <span className="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">Diop</span>
+              </h1>
+              <p className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
+                Junior Developer
+              </p>
+            </div>
 
-          <div className="social-links">
-            <a
-              href="https://github.com/amadoudiop04"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my GitHub profile"
-              className="social-link"
-              title="GitHub"
+            <p className="text-lg text-slate-300 leading-relaxed max-w-lg">
+              Développeur passionné par la création d'expériences web modernes et performantes. 
+              Spécialisé en React, Tailwind CSS et technologies du web.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="https://docs.google.com/document/d/1qcx6xXyEw_13vPfCigk4zCv9yZUDvGemxZqbR5gUnU8/edit?usp=sharing"
+                download="CV_Amadou_Diop.pdf"
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
+                aria-label="Download my CV"
+                title="Download CV as PDF"
+              >
+                📄 Télécharger CV
+              </a>
+
+              {/* Social Links */}
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/amadoudiop04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit my GitHub profile"
+                  title="GitHub"
+                  className="px-6 py-3 rounded-full bg-slate-800/50 border-2 border-slate-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-pink-600 hover:border-transparent text-white flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <img className="w-5 h-5" src={image} alt="GitHub" loading="lazy" />
+                  <span className="font-semibold">GitHub</span>
+                </a>
+
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit my LinkedIn profile"
+                  title="LinkedIn"
+                  className="px-6 py-3 rounded-full bg-slate-800/50 border-2 border-slate-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-pink-600 hover:border-transparent text-white flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <span className="font-semibold">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {[
+            { label: 'Projets', value: '7+' },
+            { label: 'Technos', value: '10+' },
+            { label: 'Expérience', value: '2+ ans' },
+            { label: 'En ligne', value: '24/7' }
+          ].map((stat, index) => (
+            <div 
+              key={index}
+              className="p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl border border-slate-700/50 text-center hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10"
             >
-              <img className="social-icon" src={image} alt="GitHub" loading="lazy" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div className="jersey-container" ref={mountRef}>
-        {isLoading && (
-          <div className="model-loading">
-            <div className="loading-spinner"></div>
-            <p>Chargement du modèle 3D...</p>
-          </div>
-        )}
+              <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                {stat.value}
+              </p>
+              <p className="text-slate-300 font-medium">{stat.label}</p>
+            </div>
+          ))}
+        </section>
       </div>
     </main>
   );

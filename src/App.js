@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Footer, Navbar, Container, Containercard, Experience, AnimatedProjectCards } from "./components";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import BackToTop from "./components/BackToTop/BackToTop";
-import DarkModeToggle from "./components/DarkMode/DarkModeToggle";
 import Statistics from "./components/statistics/Statistics";
 import Certifications from "./components/certifications/certifications";
-import './App.css';
 import Infos from "./components/infos/infos";
 
 // Lazy load Forms for better performance
@@ -17,7 +15,6 @@ const App = () => {
     <Router>
       <div className="App">
         <ScrollProgress />
-        <DarkModeToggle />
         <Navbar />
         <Routes>
           <Route path="/" element={

@@ -1,14 +1,13 @@
 import React from 'react';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
-import './ScrollProgress.css';
 
 const ScrollProgress = () => {
   const scrollProgress = useScrollProgress();
 
   return (
-    <div className="scroll-progress-container">
+    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-transparent">
       <div
-        className="scroll-progress-bar"
+        className="h-full bg-gradient-to-r from-indigo-500 to-pink-500 transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
         aria-hidden="true"
       />
@@ -17,4 +16,3 @@ const ScrollProgress = () => {
 };
 
 export default ScrollProgress;
-

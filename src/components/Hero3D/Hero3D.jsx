@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import './Hero3D.css';
 
 const Hero3D = () => {
   const canvasRef = useRef(null);
@@ -93,7 +92,12 @@ const Hero3D = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="hero-3d-canvas" />;
+  return (
+    <canvas 
+      ref={canvasRef} 
+      className="w-full h-96 bg-gradient-to-b from-slate-900 to-slate-950 rounded-lg"
+    />
+  );
 };
 
 export default Hero3D;

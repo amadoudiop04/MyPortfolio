@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './DarkModeToggle.css';
 
 const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -10,19 +9,20 @@ const DarkModeToggle = () => {
   useEffect(() => {
     const root = document.documentElement;
     if (isDark) {
-      root.setAttribute('data-theme', 'dark');
+      root.classList.remove('light');
       localStorage.setItem('theme', 'dark');
     } else {
-      root.setAttribute('data-theme', 'light');
+      root.classList.add('light');
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
   return (
     <button 
-      className="dark-mode-toggle" 
+      className="fixed top-20 right-4 z-40 p-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 hover:border-slate-600 transition-all duration-300 transform hover:scale-110"
       onClick={() => setIsDark(!isDark)}
       aria-label="Toggle dark mode"
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? '☀️' : '🌙'}
     </button>
@@ -30,4 +30,3 @@ const DarkModeToggle = () => {
 };
 
 export default DarkModeToggle;
-
