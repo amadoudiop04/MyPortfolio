@@ -7,8 +7,9 @@ import Statistics from "./components/statistics/Statistics";
 import Certifications from "./components/certifications/certifications";
 import Infos from "./components/infos/infos";
 
-// Lazy load Forms for better performance
+// Lazy load pages for better performance
 const Forms = lazy(() => import("./pages/forms/forms"));
+const ProjectsPage = lazy(() => import("./pages/projects/projects"));
 
 const App = () => {
   return (
@@ -28,6 +29,14 @@ const App = () => {
               <Infos />
             </>
           } />
+          <Route 
+            path="/projects" 
+            element={
+              <Suspense fallback={<div className="loading-container">Chargement...</div>}>
+                <ProjectsPage />
+              </Suspense>
+            } 
+          />
           <Route 
             path="/forms" 
             element={

@@ -21,37 +21,24 @@ const ContainerCard = () => {
             </h1>
             <h2 
               id="about-heading" 
-              className="text-3xl sm:text-5xl text-center font-lobster font-bold bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent"
+              className="text-3xl sm:text-5xl text-center font-lobster font-bold bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent"
             >
               About Me
             </h2>
           </header>
 
           {/* About Content */}
-          <div className={`flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center transform transition-all duration-700 ${
+          <div className={`flex flex-col gap-8 transform transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            {/* Profile Image */}
-            <div className="w-full lg:w-1/2 flex-shrink-0">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-700 hover:border-indigo-500 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-pink-600/20 z-10" />
-                <img 
-                  src={profileImage}
-                  alt="Amadou Diop Profile"
-                  className="w-full h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
             {/* Info Cards & Bio */}
-            <div className="flex flex-col gap-6 w-full lg:w-1/2">
+            <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
               {/* Experience & Education Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Experience Card */}
                 <article className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-indigo-500/10 transform hover:scale-105 transition-all duration-300 group">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">🚀</div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-600 to-pink-500 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">🚀</div>
                     <h3 className="text-lg font-bold text-white">
                       Experience
                     </h3>
@@ -64,7 +51,7 @@ const ContainerCard = () => {
                 {/* Education Card */}
                 <article className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-indigo-500/10 transform hover:scale-105 transition-all duration-300 group">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">🎓</div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-600 to-pink-500 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">🎓</div>
                     <h3 className="text-lg font-bold text-white">
                       Education
                     </h3>
@@ -82,7 +69,7 @@ const ContainerCard = () => {
                 </p>
                 <div className="space-y-2">
                   <p className="text-slate-200 font-semibold">
-                    <span className="text-indigo-400">📋 Looking for:</span>
+                    <span className="text-red-500">📋 Looking for:</span>
                   </p>
                   <ul className="text-slate-300 text-sm space-y-1 ml-4">
                     <li>✓ 2.5-month internship starting June 2025</li>

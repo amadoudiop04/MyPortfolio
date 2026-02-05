@@ -18,7 +18,7 @@ const Infos = () => {
           <h2 className="text-xl sm:text-2xl text-slate-400 font-lobster mb-2">
             Get in Touch
           </h2>
-          <h1 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent">
             Contact Me
           </h1>
         </div>
@@ -38,7 +38,7 @@ const Infos = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-slate-400 text-sm font-medium mb-1">Email</p>
-                <p className="text-white font-semibold truncate group-hover:text-indigo-400 transition-colors">
+                <p className="text-white font-semibold truncate group-hover:text-red-500 transition-colors">
                   amadoudiop.04@outlook.fr
                 </p>
               </div>
@@ -60,7 +60,7 @@ const Infos = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-slate-400 text-sm font-medium mb-1">LinkedIn</p>
-                <p className="text-white font-semibold group-hover:text-indigo-400 transition-colors">
+                <p className="text-white font-semibold group-hover:text-red-500 transition-colors">
                   LinkedIn Profile
                 </p>
               </div>

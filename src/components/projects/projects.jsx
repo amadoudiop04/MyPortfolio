@@ -141,7 +141,7 @@ const AnimatedProjectCards = () => {
           }`}
           ref={ref}
         >
-          <h2 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent">
             Mes Projets
           </h2>
         </div>
@@ -154,7 +154,7 @@ const AnimatedProjectCards = () => {
               onClick={() => setSelectedFilter(tech)}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                 selectedFilter === tech
-                  ? "bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg scale-105"
+                  ? "bg-gradient-to-r from-red-600 to-pink-600 text-white shadow-lg scale-105"
                   : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
               }`}
             >
@@ -219,7 +219,7 @@ const AnimatedProjectCards = () => {
                       {project.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="bg-slate-800/50 border border-slate-700 rounded-full px-3 py-1 text-xs text-slate-300 flex items-center gap-2 transition-all duration-300 hover:bg-slate-700/50 hover:border-indigo-500/30"
+                          className="bg-slate-800/50 border border-slate-700 rounded-full px-3 py-1 text-xs text-slate-300 flex items-center gap-2 transition-all duration-300 hover:bg-slate-700/50 hover:border-red-600/30"
                         >
                           {techLogos[tech] && (
                             <img
@@ -250,7 +250,7 @@ const AnimatedProjectCards = () => {
                           rel="noopener noreferrer"
                           className="inline-block"
                         >
-                          <button className="px-6 py-2 rounded-lg text-sm font-semibold bg-slate-800 text-white border border-slate-600 hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+                          <button className="px-6 py-2 rounded-lg text-sm font-semibold bg-slate-800 text-white border border-slate-600 hover:bg-red-600 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1">
                             GitHub
                           </button>
                         </a>
@@ -263,7 +263,7 @@ const AnimatedProjectCards = () => {
                           className="inline-block"
                         >
                           <button
-                            className="px-6 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                            className="px-6 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                             aria-label={`Voir la démonstration de ${project.name}`}
                           >
                             Live Demo

@@ -25,7 +25,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="flex flex-col gap-4">
             <div>
-              <h3 className="text-2xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent mb-2">
+              <h3 className="text-2xl font-bold font-lobster bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent mb-2">
                 Amadou Diop
               </h3>
               <p className="text-slate-400 text-sm">Junior Developer</p>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-slate-400 hover:text-indigo-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-red-500 transition-colors duration-300 text-sm"
                 >
                   {link.label}
                 </a>
@@ -61,7 +61,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-slate-400 hover:text-indigo-400 transition-colors duration-300 text-sm group"
+                  className="flex items-center gap-2 text-slate-400 hover:text-red-500 transition-colors duration-300 text-sm group"
                   aria-label={link.label}
                 >
                   <span className="group-hover:scale-110 transition-transform">{link.icon}</span>
@@ -78,7 +78,7 @@ const Footer = () => {
               {['React', 'Tailwind', 'Node.js', 'JavaScript'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 text-xs bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-full hover:border-indigo-500/50 transition-colors duration-300"
+                  className="px-3 py-1 text-xs bg-slate-800/50 border border-slate-700/50 text-slate-300 rounded-full hover:border-red-600/50 transition-colors duration-300"
                 >
                   {tech}
                 </span>
