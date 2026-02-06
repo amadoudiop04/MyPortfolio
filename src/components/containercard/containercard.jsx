@@ -1,6 +1,6 @@
 import React from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import profileImage from "../../Ressources/AMADOU.jpg";
+// profileImage removed as it's no longer used
 
 const ContainerCard = () => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });

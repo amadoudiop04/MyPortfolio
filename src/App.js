@@ -15,37 +15,42 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        <a href="#main-content" className="skip-link">
+          Aller au contenu
+        </a>
         <ScrollProgress />
         <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Container />
-              <Containercard />
-              <Statistics />
-              <Experience />
-              <Certifications />
-              <AnimatedProjectCards />
-              <Infos />
-            </>
-          } />
-          <Route 
-            path="/projects" 
-            element={
-              <Suspense fallback={<div className="loading-container">Chargement...</div>}>
-                <ProjectsPage />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/forms" 
-            element={
-              <Suspense fallback={<div className="loading-container">Chargement...</div>}>
-                <Forms />
-              </Suspense>
-            } 
-          />
-        </Routes>
+        <main id="main-content" tabIndex={-1}>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Container />
+                <Containercard />
+                <Statistics />
+                <Experience />
+                <Certifications />
+                <AnimatedProjectCards />
+                <Infos />
+              </>
+            } />
+            <Route 
+              path="/projects" 
+              element={
+                <Suspense fallback={<div className="loading-container">Chargement...</div>}>
+                  <ProjectsPage />
+                </Suspense>
+              } 
+            />
+            <Route 
+              path="/forms" 
+              element={
+                <Suspense fallback={<div className="loading-container">Chargement...</div>}>
+                  <Forms />
+                </Suspense>
+              } 
+            />
+          </Routes>
+        </main>
         <Footer />
         <BackToTop />
       </div>

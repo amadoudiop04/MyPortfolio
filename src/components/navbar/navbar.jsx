@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -12,8 +10,6 @@ const Navbar = () => {
   const handleLinkClick = () => {
     setIsOpen(false);
   };
-
-  const isFormsPage = location.pathname === "/forms";
 
   return (
     <header className="sticky top-0 z-50">
