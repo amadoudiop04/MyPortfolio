@@ -12,19 +12,14 @@ const Statistics = () => {
   ];
 
   return (
-    <section
-      className={`py-16 px-4 sm:px-8 transform transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-      ref={ref}
-    >
+    <section className="py-16 px-4 sm:px-8" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group relative bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-lg border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 text-center overflow-hidden"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className={`fall-item ${isVisible ? "fall-in" : ""} group relative bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-lg border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-[box-shadow,transform] duration-300 text-center overflow-hidden`}
+              style={{ transitionDelay: `${index * 110}ms` }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Footer, Navbar, Container, Containercard, Experience, AnimatedProjectCards } from "./components";
+import { Footer, Navbar, Container, Containercard, Experience, AnimatedProjectCards, SectionNav } from "./components";
 import BackToTop from "./components/BackToTop/BackToTop";
 import Statistics from "./components/statistics/Statistics";
 import Certifications from "./components/certifications/certifications";
@@ -51,6 +51,7 @@ const App = () => {
         </main>
         <Footer />
         <BackToTop />
+        <SectionNav />
       </div>
     </Router>
   );

@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import InkReveal from "../InkReveal/InkReveal";
 import image1 from "../../Ressources/gameTalk.png";
 import image2 from "../../Ressources/PokemonLike.png";
 import image3 from "../../Ressources/Hackaton48H.png";
@@ -28,6 +29,18 @@ const techLogos = {
 const AnimatedProjectCards = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains("dark")
+  );
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setIsDark(document.documentElement.classList.contains("dark"))
+    );
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  const maskColor = isDark ? [15, 23, 42] : [248, 250, 252];
+  const maskOpacity = isDark ? 0.6 : 0.4;
 
   const projects = useMemo(
     () => [
@@ -117,15 +130,12 @@ const AnimatedProjectCards = () => {
   }, [selectedFilter, projects]);
 
   return (
-    <section className="w-full py-20 px-4 sm:px-8">
+    <section id="projects" className="w-full py-20 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div
-          id="projects"
           ref={ref}
-          className={`text-center mb-12 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-12 fall-item ${isVisible ? "fall-in" : ""}`}
         >
           <h2 className="text-xl sm:text-2xl text-slate-400 font-lobster mb-2">Discover My</h2>
           <h3 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -135,9 +145,8 @@ const AnimatedProjectCards = () => {
 
         {/* Filter buttons */}
         <div
-          className={`flex flex-wrap justify-center gap-2 mb-10 transform transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`flex flex-wrap justify-center gap-2 mb-10 fall-item ${isVisible ? "fall-in" : ""}`}
+          style={{ transitionDelay: "130ms" }}
         >
           {allTechnologies.map((tech) => (
             <button
@@ -160,15 +169,16 @@ const AnimatedProjectCards = () => {
             <p className="text-slate-500 dark:text-slate-400 text-lg">No projects found for this technology.</p>
           </div>
         ) : (
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 transform transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            {filteredProjects.map((project) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group flex flex-col bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900 border border-slate-300 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:border-indigo-300 dark:hover:border-indigo-600/40 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-600/10 hover:-translate-y-1"
+                className={`leaf-card ${isVisible ? "leaf-in" : ""} group flex flex-col bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900 border border-slate-300 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-md hover:border-indigo-300 dark:hover:border-indigo-600/40 transition-colors duration-300 hover:shadow-xl hover:shadow-indigo-600/10 hover:-translate-y-1`}
+                style={{
+                  "--ld": `${index * 100}ms`,
+                  "--lx": index % 2 === 0 ? "-22px" : "22px",
+                  "--lr": index % 2 === 0 ? "-6deg" : "6deg",
+                }}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden flex-shrink-0">
@@ -180,7 +190,7 @@ const AnimatedProjectCards = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                   <span
-                    className={`absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+                    className={`absolute bottom-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm z-[3] ${
                       project.status === "Available"
                         ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
                         : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
@@ -188,6 +198,7 @@ const AnimatedProjectCards = () => {
                   >
                     {project.status}
                   </span>
+                  <InkReveal maskColor={maskColor} maskOpacity={maskOpacity} />
                 </div>
 
                 {/* Content */}

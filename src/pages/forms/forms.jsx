@@ -127,9 +127,7 @@ const Forms = () => {
       {/* Form */}
       <div className="max-w-2xl mx-auto relative z-10">
         <form
-          className={`relative bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-xl border border-slate-300 dark:border-slate-700/50 rounded-3xl p-8 sm:p-12 shadow-xl transform transition-all duration-700 overflow-hidden ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`relative bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-xl border border-slate-300 dark:border-slate-700/50 rounded-3xl p-8 sm:p-12 shadow-xl overflow-hidden fall-item ${isVisible ? "fall-in" : ""}`}
           onSubmit={handleSubmit}
           ref={ref}
         >

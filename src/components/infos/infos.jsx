@@ -12,9 +12,7 @@ const Infos = () => {
         {/* Section Header */}
         <div
           ref={ref}
-          className={`text-center mb-16 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-16 fall-item ${isVisible ? "fall-in" : ""}`}
         >
           <h2 className="text-xl sm:text-2xl text-slate-400 font-lobster mb-2">Get in Touch</h2>
           <h3 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -24,9 +22,8 @@ const Infos = () => {
 
         {/* Contact Cards */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 transform transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 fall-item ${isVisible ? "fall-in" : ""}`}
+          style={{ transitionDelay: "130ms" }}
         >
           <a href="mailto:amadoudiop.04@outlook.fr" className="group">
             <div className="bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:shadow-indigo-600/10 hover:border-indigo-300 dark:hover:border-indigo-600/30 transform hover:-translate-y-1 transition-all duration-300 h-full flex items-center gap-6">
@@ -63,9 +60,8 @@ const Infos = () => {
 
         {/* CTA Form */}
         <div
-          className={`text-center transform transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center fall-item ${isVisible ? "fall-in" : ""}`}
+          style={{ transitionDelay: "260ms" }}
         >
           <p className="text-slate-500 dark:text-slate-400 mb-6">Prefer to send me a direct message?</p>
           <Link

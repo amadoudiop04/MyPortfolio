@@ -53,9 +53,7 @@ const Experience = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div
-          className={`flex flex-col lg:flex-row justify-between items-center gap-12 mb-16 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`flex flex-col lg:flex-row justify-between items-center gap-12 mb-16 fall-item ${isVisible ? "fall-in" : ""}`}
           ref={ref}
         >
           <div className="text-center lg:text-left flex-1">
@@ -71,10 +69,8 @@ const Experience = () => {
           {skills.map((section, index) => (
             <div
               key={index}
-              className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:shadow-indigo-600/10 transform hover:-translate-y-1 transition-all duration-300 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:shadow-indigo-600/10 hover:-translate-y-1 transition-[box-shadow,transform] duration-300 fall-item ${isVisible ? "fall-in" : ""}`}
+              style={{ transitionDelay: `${120 + index * 110}ms` }}
             >
               <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <div className="w-2 h-8 bg-gradient-to-b from-indigo-600 to-violet-500 rounded" />
@@ -112,9 +108,8 @@ const Experience = () => {
 
         {/* Certifications Section */}
         <div
-          className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-lg hover:shadow-indigo-600/10 transform transition-all duration-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-lg hover:shadow-indigo-600/10 fall-item ${isVisible ? "fall-in" : ""}`}
+          style={{ transitionDelay: "340ms" }}
         >
           <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
             <div className="w-2 h-8 bg-gradient-to-b from-indigo-600 to-violet-500 rounded" />

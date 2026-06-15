@@ -10,9 +10,7 @@ const ContainerCard = () => {
 
         {/* Section Header */}
         <header
-          className={`mb-12 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mb-12 fall-item ${isVisible ? "fall-in" : ""}`}
           ref={ref}
         >
           <h2 className="text-xl sm:text-2xl text-center font-lobster text-slate-400 dark:text-slate-400 mb-2">
@@ -27,9 +25,8 @@ const ContainerCard = () => {
         </header>
 
         <div
-          className={`flex flex-col gap-8 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`flex flex-col gap-8 fall-item ${isVisible ? "fall-in" : ""}`}
+          style={{ transitionDelay: "120ms" }}
         >
           <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
 

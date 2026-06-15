@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import InkReveal from "../../components/InkReveal/InkReveal";
 import image1 from "../../Ressources/gameTalk.png";
 import image2 from "../../Ressources/PokemonLike.png";
 import image3 from "../../Ressources/Hackaton48H.png";
@@ -28,6 +29,18 @@ const ProjectsPage = () => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains("dark")
+  );
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setIsDark(document.documentElement.classList.contains("dark"))
+    );
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  const maskColor = isDark ? [15, 23, 42] : [248, 250, 252];
+  const maskOpacity = isDark ? 0.6 : 0.4;
 
   const projects = useMemo(() => [
     {
@@ -112,9 +125,7 @@ const ProjectsPage = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div
-          className={`text-center mb-16 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-16 fall-item ${isVisible ? "fall-in" : ""}`}
           ref={ref}
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent mb-4">
@@ -149,10 +160,15 @@ const ProjectsPage = () => {
           </div>
         ) : (
           <div className="space-y-8 max-w-6xl mx-auto">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600/50 shadow-md hover:shadow-2xl hover:shadow-indigo-600/10 transition-all duration-300 flex flex-col"
+                className={`leaf-card ${isVisible ? "leaf-in" : ""} group relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600/50 shadow-md hover:shadow-2xl hover:shadow-indigo-600/10 transition-colors duration-300 flex flex-col`}
+                style={{
+                  "--ld": `${index * 120}ms`,
+                  "--lx": index % 2 === 0 ? "-28px" : "28px",
+                  "--lr": index % 2 === 0 ? "-5deg" : "5deg",
+                }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
@@ -167,7 +183,7 @@ const ProjectsPage = () => {
                       filter: hoveredProject === project.id ? "brightness(1.1)" : "brightness(0.85)",
                     }}
                   />
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 right-4 z-[3]">
                     <span
                       className={`px-4 py-2 rounded-full text-sm font-semibold ${
                         project.status === "Available"
@@ -179,6 +195,7 @@ const ProjectsPage = () => {
                     </span>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                  <InkReveal maskColor={maskColor} brushSize={140} maskOpacity={maskOpacity} />
                 </div>
 
                 {/* Project Info */}
