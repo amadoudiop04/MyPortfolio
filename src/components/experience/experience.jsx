@@ -25,7 +25,7 @@ const skills = [
       { name: "SQL", icon: "mysql/mysql-original.svg", level: 70 },
       { name: "Sqlite", icon: "sqlite/sqlite-original.svg", level: 75 },
       {
-        name: "Outil No-code",
+        name: "No-code Tool",
         icon: "https://www.logoai.com/uploads/output/2025/02/17/340ef059721362bf72cc43085038428b.jpg",
         isExternal: true,
         level: 80,
@@ -40,9 +40,9 @@ const certifications = [
 ];
 
 const getLevelLabel = (level) => {
-  if (level >= 80) return "Avancé";
-  if (level >= 60) return "Intermédiaire";
-  return "Débutant";
+  if (level >= 80) return "Advanced";
+  if (level >= 60) return "Intermediate";
+  return "Beginner";
 };
 
 const Experience = () => {
@@ -52,38 +52,17 @@ const Experience = () => {
     <section id="experience" className="py-20 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div 
+        <div
           className={`flex flex-col lg:flex-row justify-between items-center gap-12 mb-16 transform transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} 
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
           ref={ref}
         >
           <div className="text-center lg:text-left flex-1">
-            <h2 className="text-xl sm:text-2xl text-slate-400 font-lobster mb-2">
-              Explore My
-            </h2>
-            <h3 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent">
-              Experience
+            <h2 className="text-xl sm:text-2xl text-slate-400 font-lobster mb-2">Explore My</h2>
+            <h3 className="text-3xl sm:text-5xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+              Skills
             </h3>
-          </div>
-          
-          {/* Animated IT Orbit */}
-          <div className="relative w-32 h-32 lg:w-40 lg:h-40" aria-hidden="true">
-            {/* Rotating circle background */}
-            <div className="absolute inset-0 border-2 border-slate-700 rounded-full animate-spin" style={{animationDuration: '20s'}} />
-            <div className="absolute inset-2 border border-slate-600 rounded-full animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}} />
-            
-            {/* Animated dots */}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-600 rounded-full animate-pulse" />
-            <div className="absolute bottom-4 right-2 w-3 h-3 bg-pink-500 rounded-full animate-pulse" style={{animationDelay: '0.3s'}} />
-            <div className="absolute bottom-4 left-2 w-3 h-3 bg-red-600 rounded-full animate-pulse" style={{animationDelay: '0.6s'}} />
-            
-            {/* Center text */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-500 bg-clip-text text-transparent">
-                IT
-              </span>
-            </div>
           </div>
         </div>
 
@@ -91,22 +70,22 @@ const Experience = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {skills.map((section, index) => (
             <div
-              className={`bg-gradient-to-br from-slate-800 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:shadow-red-600/10 transform hover:-translate-y-1 transition-all duration-300 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
               key={index}
-              style={{transitionDelay: `${index * 0.1}s`}}
+              className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:shadow-indigo-600/10 transform hover:-translate-y-1 transition-all duration-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <div className="w-2 h-8 bg-gradient-to-b from-red-600 to-pink-500 rounded" />
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <div className="w-2 h-8 bg-gradient-to-b from-indigo-600 to-violet-500 rounded" />
                 {section.title}
               </h4>
-              
+
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {section.items.map((item, i) => (
-                  <div 
+                  <div
                     key={i}
-                    className="flex flex-col items-center gap-3 p-4 bg-slate-900/50 rounded-lg hover:bg-slate-800/50 transition-all duration-300"
+                    className="flex flex-col items-center gap-3 p-4 bg-slate-100/50 dark:bg-slate-900/50 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all duration-300"
                   >
                     <img
                       src={
@@ -119,8 +98,8 @@ const Experience = () => {
                       loading="lazy"
                     />
                     <div className="text-center">
-                      <p className="text-xs sm:text-sm font-semibold text-white">{item.name}</p>
-                      <span className="text-xs px-2 py-1 bg-red-600/20 text-red-400 rounded-full inline-block mt-1">
+                      <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">{item.name}</p>
+                      <span className="text-xs px-2 py-1 bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 rounded-full inline-block mt-1">
                         {getLevelLabel(item.level)}
                       </span>
                     </div>
@@ -132,25 +111,27 @@ const Experience = () => {
         </div>
 
         {/* Certifications Section */}
-        <div className={`bg-gradient-to-br from-slate-800 to-slate-900/50 border border-slate-700/50 rounded-2xl p-8 shadow-lg hover:shadow-red-600/10 transform transition-all duration-300 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-            <div className="w-2 h-8 bg-gradient-to-b from-red-600 to-pink-500 rounded" />
+        <div
+          className={`bg-white dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900/50 border border-slate-300 dark:border-slate-700/50 rounded-2xl p-8 shadow-md hover:shadow-lg hover:shadow-indigo-600/10 transform transition-all duration-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <div className="w-2 h-8 bg-gradient-to-b from-indigo-600 to-violet-500 rounded" />
             Certifications
           </h4>
-          
+
           <ul className="space-y-4">
             {certifications.map((cert, idx) => (
-              <li 
+              <li
                 key={idx}
-                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-4 bg-slate-900/50 rounded-lg hover:bg-slate-800/50 transition-all duration-300 border-l-2 border-red-600"
+                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-4 bg-slate-100/50 dark:bg-slate-900/50 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all duration-300 border-l-2 border-indigo-600"
               >
                 <div>
-                  <p className="text-white font-semibold">{cert.name}</p>
-                  <p className="text-slate-400 text-sm mt-1">{cert.issuer}</p>
+                  <p className="text-slate-900 dark:text-white font-semibold">{cert.name}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{cert.issuer}</p>
                 </div>
-                <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm font-medium whitespace-nowrap">
+                <span className="px-3 py-1 bg-violet-500/20 text-violet-600 dark:text-violet-300 rounded-full text-sm font-medium whitespace-nowrap">
                   {cert.year}
                 </span>
               </li>

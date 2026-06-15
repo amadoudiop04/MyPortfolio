@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Footer, Navbar, Container, Containercard, Experience, AnimatedProjectCards } from "./components";
-import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import BackToTop from "./components/BackToTop/BackToTop";
 import Statistics from "./components/statistics/Statistics";
 import Certifications from "./components/certifications/certifications";
@@ -14,12 +13,11 @@ const ProjectsPage = lazy(() => import("./pages/projects/projects"));
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div className="App min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
         <a href="#main-content" className="skip-link">
-          Aller au contenu
+          Skip to content
         </a>
-        <ScrollProgress />
-        <Navbar />
+<Navbar />
         <main id="main-content" tabIndex={-1}>
           <Routes>
             <Route path="/" element={
@@ -33,21 +31,21 @@ const App = () => {
                 <Infos />
               </>
             } />
-            <Route 
-              path="/projects" 
+            <Route
+              path="/projects"
               element={
-                <Suspense fallback={<div className="loading-container">Chargement...</div>}>
+                <Suspense fallback={<div className="loading-container">Loading...</div>}>
                   <ProjectsPage />
                 </Suspense>
-              } 
+              }
             />
-            <Route 
-              path="/forms" 
+            <Route
+              path="/forms"
               element={
-                <Suspense fallback={<div className="loading-container">Chargement...</div>}>
+                <Suspense fallback={<div className="loading-container">Loading...</div>}>
                   <Forms />
                 </Suspense>
-              } 
+              }
             />
           </Routes>
         </main>

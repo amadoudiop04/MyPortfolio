@@ -10,26 +10,18 @@ import image6 from "../../Ressources/blog.png";
 const techLogos = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  JavaScript:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   Go: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
-  SQLite:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+  SQLite: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
   "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
   EntityFramework: "",
-  React:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   Node: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  express:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-  TailwindCSS:
-    "https://cdn.worldvectorlogo.com/logos/tailwind-css-1.svg",
-  MYSQL:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-  MongoDB:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  PHP:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  TailwindCSS: "https://cdn.worldvectorlogo.com/logos/tailwind-css-1.svg",
+  MYSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
 };
 
 const ProjectsPage = () => {
@@ -46,7 +38,7 @@ const ProjectsPage = () => {
       demo: "https://drive.google.com/file/d/1XGejp93b8dftmdbapPYz30h7SUMEyek3/view?usp=drive_link",
       technologies: ["HTML", "CSS", "JavaScript", "Go", "SQLite"],
       description: "A forum for game discussions and community interaction. Users can create topics, participate in discussions, and share their gaming experiences with a vibrant community.",
-      status: "Disponible",
+      status: "Available",
     },
     {
       id: 2,
@@ -56,7 +48,7 @@ const ProjectsPage = () => {
       demo: "https://drive.google.com/file/d/1y6u-q3-0pe6XMo1KW_RzMEeoG-1Ac10i/view?usp=sharing",
       technologies: ["C#", "EntityFramework"],
       description: "A Pokemon-inspired game with comprehensive battle mechanics. Catch, train, and battle creatures in an immersive gaming experience.",
-      status: "Disponible",
+      status: "Available",
     },
     {
       id: 4,
@@ -75,7 +67,7 @@ const ProjectsPage = () => {
       github: "",
       demo: "",
       technologies: ["React", "Node", "express", "TailwindCSS", "MongoDB"],
-      description: "Développement d'une plateforme pour une équipe e-sport de League of Legends. Gestion des tournois, matchs et classements.",
+      description: "Platform for a League of Legends e-sport team. Tournament, match and ranking management.",
       status: "Coming Soon",
     },
     {
@@ -85,18 +77,18 @@ const ProjectsPage = () => {
       github: "",
       demo: "",
       technologies: ["PHP", "HTML", "CSS", "MYSQL"],
-      description: "Développement d'une plateforme de mise en vente de livres. Catalogue complet, panier d'achat et système de paiement.",
+      description: "Online book selling platform with a full catalogue, shopping cart and payment system.",
       status: "Coming Soon",
     },
     {
       id: 7,
-      name: "Blog de stage 25-26",
+      name: "Internship Blog 25-26",
       image: image6,
       github: "",
       demo: "https://blogamadoudiop25-26.netlify.app",
       technologies: ["React", "TailwindCSS"],
-      description: "Blog personnel pour partager mes expériences de stage et mes apprentissages professionnels.",
-      status: "Disponible",
+      description: "Personal blog to share my internship experiences and professional learnings.",
+      status: "Available",
     },
   ], []);
 
@@ -125,10 +117,10 @@ const ProjectsPage = () => {
           }`}
           ref={ref}
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-lobster bg-gradient-to-r from-red-500 to-pink-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-lobster bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent mb-4">
             All My Projects
           </h1>
-          <p className="text-slate-400 text-lg">Explore my complete portfolio of work</p>
+          <p className="text-slate-500 dark:text-slate-400 text-lg">Explore my complete portfolio of work</p>
         </div>
 
         {/* Filter buttons */}
@@ -139,8 +131,8 @@ const ProjectsPage = () => {
               onClick={() => setSelectedFilter(tech)}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                 selectedFilter === tech
-                  ? "bg-gradient-to-r from-red-600 to-pink-600 text-white shadow-lg scale-105"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 hover:border-slate-600"
+                  ? "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-600/30 scale-105"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600"
               }`}
             >
               {tech}
@@ -148,11 +140,11 @@ const ProjectsPage = () => {
           ))}
         </div>
 
-        {/* Projects Grid - Larger Cards - Vertical Layout */}
+        {/* Projects - Vertical Layout */}
         {filteredProjects.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-slate-400 text-lg">
-              Aucun projet trouvé pour cette technologie.
+            <p className="text-slate-500 dark:text-slate-400 text-lg">
+              No projects found for this technology.
             </p>
           </div>
         ) : (
@@ -160,11 +152,11 @@ const ProjectsPage = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/50 hover:border-red-600/50 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
+                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600/50 shadow-md hover:shadow-2xl hover:shadow-indigo-600/10 transition-all duration-300 flex flex-col"
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Project Image - Full Width */}
+                {/* Project Image */}
                 <div className="relative overflow-hidden h-72 sm:h-80 md:h-96 w-full">
                   <img
                     loading="lazy"
@@ -172,18 +164,13 @@ const ProjectsPage = () => {
                     alt={`Projet ${project.name}`}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     style={{
-                      filter:
-                        hoveredProject === project.id
-                          ? "brightness(1.1)"
-                          : "brightness(0.85)",
+                      filter: hoveredProject === project.id ? "brightness(1.1)" : "brightness(0.85)",
                     }}
                   />
-
-                  {/* Status Badge */}
                   <div className="absolute top-4 right-4">
                     <span
                       className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                        project.status === "Disponible"
+                        project.status === "Available"
                           ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
                           : "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                       }`}
@@ -191,27 +178,21 @@ const ProjectsPage = () => {
                       {project.status}
                     </span>
                   </div>
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
                 </div>
 
-                {/* Project Info Section - Split Layout */}
+                {/* Project Info */}
                 <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                  
-                  {/* Left Column: Project Name and Technologies */}
                   <div className="flex flex-col justify-between">
                     <div>
-                      <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-red-500 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all duration-300">
                         {project.name}
                       </h3>
-
-                      {/* Technologies */}
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-slate-800/50 border border-slate-700 rounded-full px-3 py-1.5 text-sm text-slate-300 flex items-center gap-2 transition-all duration-300 hover:bg-slate-700/50 hover:border-red-600/30"
+                            className="bg-slate-100 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-full px-3 py-1.5 text-sm text-slate-600 dark:text-slate-300 flex items-center gap-2 transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-600/30"
                           >
                             {techLogos[tech] && (
                               <img
@@ -228,42 +209,27 @@ const ProjectsPage = () => {
                     </div>
                   </div>
 
-                  {/* Right Column: Description and Links */}
                   <div className="flex flex-col justify-between">
-                    <div>
-                      {/* Description */}
-                      <p className="text-slate-300 text-base leading-relaxed mb-6">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Action Buttons */}
+                    <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                      {project.description}
+                    </p>
                     <div className="flex gap-4 flex-wrap">
                       {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button className="px-6 py-2.5 rounded-lg text-sm font-semibold bg-slate-800 text-white border border-slate-600 hover:bg-red-600 hover:border-red-600 transition-all duration-300 transform hover:-translate-y-1">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <button className="px-6 py-2.5 rounded-lg text-sm font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-600 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                             GitHub
                           </button>
                         </a>
                       )}
                       {project.demo && (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button className="px-6 py-2.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <button className="px-6 py-2.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                             Live Demo
                           </button>
                         </a>
                       )}
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
