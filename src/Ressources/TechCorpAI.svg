@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Georgia, 'Times New Roman', serif">
+  <!-- Fond principal -->
+  <rect width="1200" height="630" fill="#faf5ef"/>
+
+  <!-- Sidebar -->
+  <rect width="300" height="630" fill="#f4ece3"/>
+  <line x1="300" y1="0" x2="300" y2="630" stroke="#e5d9cc" stroke-width="2"/>
+  <text x="36" y="58" font-size="30" font-weight="bold" fill="#2f2a26">&#10022; TechCorp</text>
+  <rect x="24" y="90" width="252" height="52" rx="26" fill="#f3d8ca"/>
+  <text x="60" y="123" font-size="19" fill="#4a3f38">&#9998;&#160;&#160;Nouvelle discussion</text>
+
+  <!-- Bulle utilisateur -->
+  <rect x="770" y="60" width="330" height="56" rx="28" fill="#efe6db"/>
+  <text x="935" y="96" font-size="21" fill="#2f2a26" text-anchor="middle">Explique moi python</text>
+
+  <!-- Réponse de l'assistant -->
+  <text x="340" y="170" font-size="20" fill="#2f2a26">Python est un langage de programmation populaire et facile à apprendre :</text>
+  <g fill="#5a5049">
+    <text x="360" y="225" font-size="19" font-weight="bold">1.  Littérature :</text>
+    <rect x="520" y="211" width="500" height="14" rx="7" fill="#ddd2c5"/>
+    <rect x="380" y="243" width="580" height="14" rx="7" fill="#e6dccf"/>
+    <text x="360" y="305" font-size="19" font-weight="bold">2.  Syntaxe :</text>
+    <rect x="490" y="291" width="540" height="14" rx="7" fill="#ddd2c5"/>
+    <rect x="380" y="323" width="500" height="14" rx="7" fill="#e6dccf"/>
+    <text x="360" y="385" font-size="19" font-weight="bold">3.  Écosystème :</text>
+    <rect x="530" y="371" width="460" height="14" rx="7" fill="#ddd2c5"/>
+  </g>
+
+  <!-- Zone de saisie -->
+  <rect x="420" y="440" width="660" height="150" rx="26" fill="#ffffff" stroke="#e8ddd0" stroke-width="2"/>
+  <text x="452" y="490" font-size="21" fill="#b3a89c" font-style="italic">Écrivez votre message...</text>
+
+  <!-- Pills de configuration -->
+  <rect x="448" y="518" width="190" height="44" rx="22" fill="#faf5ef" stroke="#e8ddd0" stroke-width="1.5"/>
+  <text x="470" y="546" font-size="17" font-weight="bold" fill="#3d362f">phi3.5-financial &#9662;</text>
+  <rect x="652" y="518" width="185" height="44" rx="22" fill="#faf5ef" stroke="#e8ddd0" stroke-width="1.5"/>
+  <text x="674" y="546" font-size="17" fill="#6b6156">Température <tspan font-weight="bold" fill="#3d362f">0.6</tspan></text>
+  <rect x="851" y="518" width="180" height="44" rx="22" fill="#faf5ef" stroke="#e8ddd0" stroke-width="1.5"/>
+  <text x="873" y="546" font-size="17" fill="#6b6156">Max tokens <tspan font-weight="bold" fill="#3d362f">1024</tspan></text>
+
+  <!-- Bouton envoyer -->
+  <circle cx="1044" cy="490" r="24" fill="#e9a68f"/>
+  <path d="M1044 502 v-24 m-9 9 l9 -9 l9 9" stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

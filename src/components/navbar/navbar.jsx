@@ -3,31 +3,26 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiSun, FiMoon } from "react-icons/fi";
 
 const NAV_ITEMS = [
-  { label: "Home", to: "/", type: "link" },
-  { label: "About", hash: "#about", type: "anchor" },
-  { label: "Skills", hash: "#experience", type: "anchor" },
-  { label: "Projects", to: "/projects", type: "link" },
-  { label: "Contact", hash: "#contact", type: "anchor" },
+  { label: "Home",     to: "/",          type: "link"   },
+  { label: "About",    hash: "#about",   type: "anchor" },
+  { label: "Skills",   hash: "#experience", type: "anchor" },
+  { label: "Projects", to: "/projects",  type: "link"   },
+  { label: "Contact",  hash: "#contact", type: "anchor" },
 ];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isDark, setIsDark]   = useState(true);
+  const navigate  = useNavigate();
+  const location  = useLocation();
 
-  // Initialize theme on mount
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const startDark = saved ? saved === "dark" : prefersDark;
     setIsDark(startDark);
-    if (startDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", startDark);
   }, []);
 
   useEffect(() => {
@@ -36,16 +31,21 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* ─── Scroll to anchor after cross-page navigation ─── */
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (!target) return;
+    const id = setTimeout(() => {
+      document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+    }, 350);
+    return () => clearTimeout(id);
+  }, [location.state?.scrollTo]);
+
   const toggleDark = () => {
     const next = !isDark;
     setIsDark(next);
-    if (next) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
   };
 
   const closeMenu = () => setIsOpen(false);
@@ -56,17 +56,29 @@ const Navbar = () => {
     if (location.pathname === "/") {
       document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/");
-      setTimeout(() => {
-        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      navigate("/", { state: { scrollTo: hash } });
     }
   };
 
+  const isActivePage = (item) =>
+    item.type === "link" && location.pathname === item.to;
+
   const renderNavItem = (item, mobile = false) => {
-    const cls = mobile
-      ? "block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 font-medium transition-all duration-300 rounded-xl"
-      : "px-4 py-2 rounded-full text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 font-medium transition-all duration-200";
+    const active = isActivePage(item);
+
+    const desktopCls = `relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+      active
+        ? "bg-gradient-to-r from-indigo-500/15 to-violet-500/15 text-indigo-600 dark:text-indigo-400 font-semibold"
+        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5"
+    }`;
+
+    const mobileCls = `flex items-center gap-2 px-4 py-3 font-medium transition-all duration-200 rounded-xl ${
+      active
+        ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10"
+        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70"
+    }`;
+
+    const cls = mobile ? mobileCls : desktopCls;
 
     if (item.type === "anchor") {
       return (
@@ -77,6 +89,9 @@ const Navbar = () => {
     }
     return (
       <Link key={item.label} to={item.to} onClick={closeMenu} className={cls}>
+        {active && !mobile && (
+          <span className="absolute inset-0 rounded-full ring-1 ring-indigo-500/20" />
+        )}
         {item.label}
       </Link>
     );
@@ -126,7 +141,7 @@ const Navbar = () => {
             className="md:hidden flex flex-col gap-1.5 p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-300"
           >
             <span className={`block w-6 h-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 transition-all duration-300 ${isOpen ? "opacity-0 scale-x-0" : ""}`} />
             <span className={`block w-6 h-0.5 bg-gradient-to-r from-indigo-600 to-violet-500 transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>

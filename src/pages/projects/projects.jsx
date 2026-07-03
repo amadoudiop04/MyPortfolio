@@ -7,6 +7,7 @@ import image3 from "../../Ressources/Hackaton48H.png";
 import image4 from "../../Ressources/Raoding.png";
 import image5 from "../../Ressources/ecommerce.png";
 import image6 from "../../Ressources/blog.png";
+import image7 from "../../Ressources/TechCorpAI.svg";
 
 const techLogos = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -23,6 +24,10 @@ const techLogos = {
   MYSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  FastAPI: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  Ollama: "",
 };
 
 const ProjectsPage = () => {
@@ -101,6 +106,16 @@ const ProjectsPage = () => {
       demo: "https://blogamadoudiop25-26.netlify.app",
       technologies: ["React", "TailwindCSS"],
       description: "Personal blog to share my internship experiences and professional learnings.",
+      status: "Available",
+    },
+    {
+      id: 8,
+      name: "TechCorp AI Chat",
+      image: image7,
+      github: "https://github.com/amadoudiop04/hackaton-ia-info-26-27",
+      demo: "",
+      technologies: ["Python", "FastAPI", "React", "Ollama", "Docker"],
+      description: "AI financial assistant built during an AI hackathon with a team of 16 developers. End-to-end platform serving the Phi-3.5-Financial model through Ollama, with a FastAPI backend and a real-time streaming React chat interface.",
       status: "Available",
     },
   ], []);
