@@ -8,6 +8,8 @@ import image4 from "../../Ressources/Raoding.png";
 import image5 from "../../Ressources/ecommerce.png";
 import image6 from "../../Ressources/blog.png";
 import image7 from "../../Ressources/TechCorpAI.svg";
+import image8 from "../../Ressources/esport.png";
+import image9 from "../../Ressources/nancyImmo.png";
 
 const techLogos = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -27,6 +29,11 @@ const techLogos = {
   Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   FastAPI: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
   Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  Angular: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  Spring: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  PostgreSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   Ollama: "",
 };
 
@@ -116,6 +123,26 @@ const ProjectsPage = () => {
       demo: "",
       technologies: ["Python", "FastAPI", "React", "Ollama", "Docker"],
       description: "AI financial assistant built during an AI hackathon with a team of 16 developers. End-to-end platform serving the Phi-3.5-Financial model through Ollama, with a FastAPI backend and a real-time streaming React chat interface.",
+      status: "Available",
+    },
+    {
+      id: 9,
+      name: "B3 Esport Valorant Hub",
+      image: image8,
+      github: "https://github.com/amadoudiop04/fil-rouge-B3-dev",
+      demo: "",
+      technologies: ["React", "TypeScript", "TailwindCSS", "Node", "MYSQL", "Docker"],
+      description: "Web platform for the Valorant community, built as my B3 final-year project with a teammate. Agent tier list and live stats fed by the Riot Games and PandaScore APIs, team finder (LFG), tournament management, merch shop and a full admin back office, all containerised with Docker.",
+      status: "Available",
+    },
+    {
+      id: 10,
+      name: "NancyImmo",
+      image: image9,
+      github: "https://github.com/amadoudiop04/nancyImmo",
+      demo: "https://nancy-immo.netlify.app/",
+      technologies: ["Angular", "TypeScript", "TailwindCSS", "Java", "Spring", "PostgreSQL"],
+      description: "Rental property management platform with a dedicated space for landlords and tenants. Landlords track their properties, tenants, rental applications and payments, and rent receipts are generated automatically as PDFs. Angular front end backed by a JWT-secured Spring Boot API, a PostgreSQL database and Stripe payments.",
       status: "Available",
     },
   ], []);
